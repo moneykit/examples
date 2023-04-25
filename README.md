@@ -1,1 +1,1 @@
-# examples
+# MoneyKit Examples
