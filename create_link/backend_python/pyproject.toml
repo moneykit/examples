@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 fastapi = "^0.95.1"
 uvicorn = "^0.21.1"
+moneykit = "^0.0.5"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.263"
