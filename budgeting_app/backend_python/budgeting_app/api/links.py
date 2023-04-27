@@ -5,8 +5,9 @@ import pydantic
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
+from budgeting_app.accounts import LinkManager
 from budgeting_app.database.connection import get_db_session
-from budgeting_app.users import LinkManager, User, UserSessionManager, UsersRepository
+from budgeting_app.users import User, UserSessionManager, UsersRepository
 
 router = APIRouter(prefix="/links")
 

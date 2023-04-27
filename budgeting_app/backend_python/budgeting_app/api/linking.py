@@ -4,8 +4,9 @@ import pydantic
 from fastapi import APIRouter, Body, Depends, status
 from sqlalchemy.orm import Session
 
+from budgeting_app.accounts import LinkManager
 from budgeting_app.database.connection import get_db_session
-from budgeting_app.users import LinkManager, User, UserSessionManager
+from budgeting_app.users import User, UserSessionManager
 
 router = APIRouter(prefix="/linking")
 
@@ -35,13 +36,13 @@ async def new_link_session(
 
 
 @router.post("/exchange-token", status_code=status.HTTP_202_ACCEPTED, response_model=ExchangeTokenForLinkResponse)
-async def exchange_token_for_link(
+async def complete_linking_process(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
     current_user: Annotated[User, Depends(UserSessionManager.current_user)],
     db_session: Annotated[Session, Depends(get_db_session)],
 ) -> ExchangeTokenForLinkResponse:
     manager = LinkManager(db_session)
-    link = manager.exchange_token_for_link(current_user, body.exchangeable_token)
+    link = manager.complete_linking_process(current_user, body.exchangeable_token)
     return ExchangeTokenForLinkResponse(
         user_link_id=link.id,
         transaction_data_available=False,

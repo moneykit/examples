@@ -34,7 +34,7 @@ class Transaction(Base):
 
     moneykit_id = Column(String, nullable=False, unique=True)
     description: str = Column(String, nullable=False)
-    ammount: Decimal = Column(Numeric(precision=28, scale=10), nullable=False)
+    amount: Decimal = Column(Numeric(precision=28, scale=10), nullable=False)
     currency: str = Column(String, nullable=False)
     timestamp: date = Column(Date, nullable=False)
     category: str = Column(String, nullable=True)

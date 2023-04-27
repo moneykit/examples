@@ -1,3 +1,4 @@
+import sqlalchemy
 from passlib.hash import pbkdf2_sha256
 from pydantic import SecretStr
 from sqlalchemy.exc import IntegrityError
@@ -69,3 +70,20 @@ class UsersRepository:
             self._db.query(UserLink).filter(UserLink.user_id == user_id, UserLink.id == link_id).one_or_none()
         )
         return link
+
+    def create_link(
+        self, user_id: int, mnoneykit_link_id: str, state: str, institution_id: str, instiotution_name: str
+    ) -> UserLink:
+        new_link = UserLink(
+            user_id=user_id,
+            link_id=mnoneykit_link_id,
+            state=state,
+            institution_id=institution_id,
+            institution_name=instiotution_name,
+            transaction_sync_cursor=None,
+        )
+        self._db.add(new_link)
+        return new_link
+
+    def delete_link(self, link_id: int) -> None:
+        self._db.execute(sqlalchemy.delete(UserLink).where(UserLink.id == link_id))

@@ -72,7 +72,7 @@ def upgrade() -> None:
         sa.Column("updated_at", sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False),
         sa.Column("moneykit_id", sa.String(), nullable=False),
         sa.Column("description", sa.String(), nullable=False),
-        sa.Column("ammount", sa.Numeric(precision=28, scale=10), nullable=False),
+        sa.Column("amount", sa.Numeric(precision=28, scale=10), nullable=False),
         sa.Column("currency", sa.String(), nullable=False),
         sa.Column("timestamp", sa.Date(), nullable=False),
         sa.Column("category", sa.String(), nullable=True),
