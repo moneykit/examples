@@ -1,0 +1,6 @@
+.DS_Store
+.venv/
+.env
+.env.*
+.git*
+node_modules/
