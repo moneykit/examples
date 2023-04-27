@@ -26,7 +26,7 @@ def create_moneykit_client() -> moneykit.ApiClient:
     )
 
     config = moneykit.Configuration(host=settings.moneykit_url)
-    config.access_token = response.access_token  # Bug with construct overwriting to `None`
+    config.access_token = response.access_token  # Bug with constructor overwriting to `None`
     client = moneykit.ApiClient(configuration=config)
     return client
 
