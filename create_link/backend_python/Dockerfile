@@ -17,4 +17,4 @@ RUN poetry install
 ENV PORT 8000
 EXPOSE 8000
 
-CMD ["uvicorn", "budgeting_app.main:app", "--host=0.0.0.0", "--port=8000", "--reload"]
+CMD ["uvicorn", "app.main:app", "--host=0.0.0.0", "--port=8000", "--reload"]
