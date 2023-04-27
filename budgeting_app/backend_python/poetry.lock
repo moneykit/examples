@@ -344,14 +344,14 @@ files = [
 
 [[package]]
 name = "moneykit"
-version = "0.0.5"
+version = "0.0.6"
 description = "MoneyKit API SDK"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "moneykit-0.0.5-py3-none-any.whl", hash = "sha256:586c8b4c00327b54212ec6eec67a476954e7a0e1550e2efc314b7930e3cbed9a"},
-    {file = "moneykit-0.0.5.tar.gz", hash = "sha256:a5ec03023b30e376a38a7864cf94c98ea7191cc02d90b2781d8fc684bf001a46"},
+    {file = "moneykit-0.0.6-py3-none-any.whl", hash = "sha256:a6ee40991244d51856bd788b7177a322ed56ef364afcd95a20dfb860fd080b89"},
+    {file = "moneykit-0.0.6.tar.gz", hash = "sha256:4340aa94bfd32b406a5636c9f225e7970178b316ae3d6b07cb05d4b3582ca122"},
 ]
 
 [package.dependencies]
@@ -862,4 +862,4 @@ anyio = ">=3.0.0,<4"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3b8818d0ab9314b9889c8aff2f0b44a823ded4965459c5abcc6d2e4c747504f4"
+content-hash = "b61e0c6bfe478bcc250373d7ea8702fd3a3927168d37c66ec90c07156aeb403e"

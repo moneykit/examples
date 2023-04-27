@@ -41,15 +41,17 @@ class ExchangeTokenForLinkRequest(pydantic.BaseModel):
 
 class ExchangeTokenForLinkResponse(pydantic.BaseModel):
     moneykit_link_id: str
+    institution_name: str
 
 
 @router.post("/session", status_code=status.HTTP_201_CREATED, response_model=NewLinkSessionResponse)
 async def new_link_session() -> NewLinkSessionResponse:
     client = create_moneykit_client()
-    moneylink_api = moneykit.MoneyLinkApi(client)
-    response = moneylink_api.create_link_session(
+    link_session_api = moneykit.LinkSessionApi(client)
+    response = link_session_api.create_link_session(
         moneykit.models.CreateLinkSessionBody(
             customer_user=moneykit.models.CustomerUser(id="examples-create_link-test-user"),
+            link_tags=["examples:create_link"],
         )
     )
     return NewLinkSessionResponse(link_session_token=response.link_session_token)
@@ -60,9 +62,12 @@ async def exchange_token_for_link(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
 ) -> ExchangeTokenForLinkResponse:
     client = create_moneykit_client()
-    moneylink_api = moneykit.MoneyLinkApi(client)
-    response = moneylink_api.exchange_token(
+    link_session_api = moneykit.LinkSessionApi(client)
+    response = link_session_api.exchange_token(
         moneykit.models.ExchangeTokenBody(exchangeable_token=body.exchangeable_token)
     )
     print(f"MoneyKit link id: {response.link_id}")
-    return ExchangeTokenForLinkResponse(moneykit_link_id=response.link_id)
+    return ExchangeTokenForLinkResponse(
+        moneykit_link_id=response.link_id,
+        institution_name=response.link.institution_name,
+    )
