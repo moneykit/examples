@@ -41,3 +41,6 @@ This example has a backend using the `moneykit` Python sdk and another version t
 4. Build and run the project in the Simulator.
 5. Create a new link with the Simulator.
 
+https://user-images.githubusercontent.com/7124846/235194069-e2d65111-1440-4f85-aed0-906c796d314a.mp4
+
+
