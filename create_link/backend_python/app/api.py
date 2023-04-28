@@ -52,6 +52,48 @@ async def new_link_session() -> NewLinkSessionResponse:
         moneykit.models.CreateLinkSessionBody(
             customer_user=moneykit.models.CustomerUser(id="examples-create_link-test-user"),
             link_tags=["examples:create_link"],
+            settings=moneykit.models.SettingOverrides(
+                link_permissions=moneykit.models.LinkPermissions(
+                    requested=[
+                        moneykit.models.RequestedLinkPermission(
+                            scope=moneykit.models.LinkPermissionScope.ACCOUNTS,
+                            reason="play with MoneyKit examples.",
+                            required=True,
+                        ),
+                        moneykit.models.RequestedLinkPermission(
+                            scope=moneykit.models.LinkPermissionScope.ACCOUNT_NUMBERS,
+                            reason="play with MoneyKit examples.",
+                            required=True,
+                        ),
+                        moneykit.models.RequestedLinkPermission(
+                            scope=moneykit.models.LinkPermissionScope.IDENTITY,
+                            reason="play with MoneyKit examples.",
+                            required=True,
+                        ),
+                        moneykit.models.RequestedLinkPermission(
+                            scope=moneykit.models.LinkPermissionScope.TRANSACTIONS,
+                            reason="play with MoneyKit examples.",
+                            required=True,
+                        ),
+                    ]
+                ),
+                # TODO: Fix API spec naming
+                products=moneykit.models.Products1(
+                    account_numbers=moneykit.models.AccountNumbers(
+                        required=False,
+                        prefetch=True,
+                    ),
+                    identity=moneykit.models.Identity(
+                        required=False,
+                        prefetch=True,
+                    ),
+                    transactions=moneykit.models.Transactions(
+                        required=False,
+                        prefetch=True,
+                        extend_history=False,
+                    ),
+                ),
+            ),
         )
     )
     return NewLinkSessionResponse(link_session_token=response.link_session_token)

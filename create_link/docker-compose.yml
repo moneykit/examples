@@ -15,3 +15,18 @@ services:
     tty: true
     volumes:
       - "./backend_python/app:/app/app"
+
+  backend-python-httpx:
+    build:
+      context: backend_python_httpx
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      BASE_URL: http://localhost:8000
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    volumes:
+      - "./backend_python_httpx/app:/app/app"
