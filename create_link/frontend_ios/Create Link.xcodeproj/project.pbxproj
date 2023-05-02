@@ -23,10 +23,10 @@
 		0DABD8DE29FABA7400E0C7C5 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8AB29FAB6DC00E0C7C5 /* CopyableLabel.swift */; };
 		0DABD8DF29FABA7400E0C7C5 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8A929FAB6C900E0C7C5 /* DemoViewController.swift */; };
 		0DABD8E029FABA7400E0C7C5 /* DemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8A729FAB6B600E0C7C5 /* DemoViewModel.swift */; };
-		0DABD8E429FABA8700E0C7C5 /* MoneyKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DABD8E329FABA8700E0C7C5 /* MoneyKit.xcframework */; };
 		0DABD8E829FABAB200E0C7C5 /* LinkApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8E729FABAB200E0C7C5 /* LinkApiClient.swift */; };
 		0DABD8EC29FABC2200E0C7C5 /* LinkSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8EB29FABC2200E0C7C5 /* LinkSessionRequest.swift */; };
 		0DABD8EF29FAC10800E0C7C5 /* ApiClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8EE29FAC10800E0C7C5 /* ApiClientType.swift */; };
+		0DABD9022A01986B00E0C7C5 /* MoneyKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DABD9012A01986B00E0C7C5 /* MoneyKit.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,10 +47,10 @@
 		0DABD8C129FAB77100E0C7C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0DABD8C829FAB77100E0C7C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DABD8CB29FAB77100E0C7C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0DABD8E329FABA8700E0C7C5 /* MoneyKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MoneyKit.xcframework; sourceTree = "<group>"; };
 		0DABD8E729FABAB200E0C7C5 /* LinkApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkApiClient.swift; sourceTree = "<group>"; };
 		0DABD8EB29FABC2200E0C7C5 /* LinkSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkSessionRequest.swift; sourceTree = "<group>"; };
 		0DABD8EE29FAC10800E0C7C5 /* ApiClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientType.swift; sourceTree = "<group>"; };
+		0DABD9012A01986B00E0C7C5 /* MoneyKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MoneyKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DABD8E429FABA8700E0C7C5 /* MoneyKit.xcframework in Frameworks */,
+				0DABD9022A01986B00E0C7C5 /* MoneyKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +129,7 @@
 		0DABD8B729FAB70700E0C7C5 /* MoneyKit */ = {
 			isa = PBXGroup;
 			children = (
-				0DABD8E329FABA8700E0C7C5 /* MoneyKit.xcframework */,
+				0DABD9012A01986B00E0C7C5 /* MoneyKit.xcframework */,
 			);
 			path = MoneyKit;
 			sourceTree = "<group>";
