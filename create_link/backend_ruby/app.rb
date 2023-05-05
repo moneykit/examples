@@ -43,28 +43,30 @@ end
 post '/linking/session' do
   link_session_api = MoneyKit::LinkSessionApi.new(moneykit_client)
   response = link_session_api.create_link_session(
-    {
-      customer_user: { id: 'examples-create_link-test-user' },
-      link_tags: ['examples:create_link'],
-      settings: {
-        link_permissions: {
-          requested: [
-            { scope: 'accounts', reason: 'play with MoneyKit examples.', required: true },
-            { scope: 'account_numbers', reason: 'play with MoneyKit examples.', required: true },
-            { scope: 'identity', reason: 'play with MoneyKit examples.', required: true },
-            { scope: 'transactions', reason: 'play with MoneyKit examples.', required: true }
+    MoneyKit::CreateLinkSessionRequest.new(
+      {
+        customer_user: { id: 'examples-create_link-test-user' },
+        link_tags: ['examples:create_link'],
+        settings: {
+          link_permissions: {
+            requested: [
+              { scope: 'accounts', reason: 'play with MoneyKit examples.', required: true },
+              { scope: 'account_numbers', reason: 'play with MoneyKit examples.', required: true },
+              { scope: 'identity', reason: 'play with MoneyKit examples.', required: true },
+              { scope: 'transactions', reason: 'play with MoneyKit examples.', required: true }
 
-          ]
-        },
-        products: {
-          account_numbers: {
-            required: false,
-            prefetch: true
+            ]
+          },
+          products: {
+            account_numbers: {
+              required: false,
+              prefetch: true
+            }
+
           }
-
         }
       }
-    }
+    )
   )
 
   status 201
@@ -77,7 +79,9 @@ post '/linking/exchange-token' do
   exchangeable_token = data['exchangeable_token']
 
   link_session_api = MoneyKit::LinkSessionApi.new(moneykit_client)
-  response = link_session_api.exchange_token({ exchangeable_token: exchangeable_token })
+  response = link_session_api.exchange_token(
+    MoneyKit::ExchangeTokenRequest.new({ exchangeable_token: exchangeable_token })
+  )
 
   status 202
   { moneykit_link_id: response.link_id, institution_name: response.link.institution_name }.to_json
