@@ -34,6 +34,13 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MoneyKit"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -19428,6 +19435,616 @@
           },
           {
             "kind": "TypeDecl",
+            "name": "ShadowStyle",
+            "printedName": "ShadowStyle",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "custom",
+                "printedName": "custom",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(MoneyKit.MKTheme.ShadowStyle.Type) -> (MoneyKit.MKTheme.Shadow) -> MoneyKit.MKTheme.ShadowStyle",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(MoneyKit.MKTheme.Shadow) -> MoneyKit.MKTheme.ShadowStyle",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ShadowStyle",
+                            "printedName": "MoneyKit.MKTheme.ShadowStyle",
+                            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Shadow",
+                            "printedName": "MoneyKit.MKTheme.Shadow",
+                            "usr": "s:8MoneyKit7MKThemeV6ShadowV"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "MoneyKit.MKTheme.ShadowStyle.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ShadowStyle",
+                            "printedName": "MoneyKit.MKTheme.ShadowStyle",
+                            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO6customyAeC0D0VcAEmF",
+                "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO6customyAeC0D0VcAEmF",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "RawDocComment"
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "none",
+                "printedName": "none",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(MoneyKit.MKTheme.ShadowStyle.Type) -> MoneyKit.MKTheme.ShadowStyle",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ShadowStyle",
+                        "printedName": "MoneyKit.MKTheme.ShadowStyle",
+                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "MoneyKit.MKTheme.ShadowStyle.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ShadowStyle",
+                            "printedName": "MoneyKit.MKTheme.ShadowStyle",
+                            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO4noneyA2EmF",
+                "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO4noneyA2EmF",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "RawDocComment"
+                ]
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO",
+            "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO",
+            "moduleName": "MoneyKit",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Shadow",
+            "printedName": "Shadow",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "offsetX",
+                "printedName": "offsetX",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetX14CoreFoundation7CGFloatVvp",
+                "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetX12CoreGraphics7CGFloatVvp",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetX14CoreFoundation7CGFloatVvg",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetX12CoreGraphics7CGFloatVvg",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetX14CoreFoundation7CGFloatVvs",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetX12CoreGraphics7CGFloatVvs",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetX14CoreFoundation7CGFloatVvM",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetX12CoreGraphics7CGFloatVvM",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "offsetY",
+                "printedName": "offsetY",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetY14CoreFoundation7CGFloatVvp",
+                "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetY12CoreGraphics7CGFloatVvp",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetY14CoreFoundation7CGFloatVvg",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetY12CoreGraphics7CGFloatVvg",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetY14CoreFoundation7CGFloatVvs",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetY12CoreGraphics7CGFloatVvs",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetY14CoreFoundation7CGFloatVvM",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetY12CoreGraphics7CGFloatVvM",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "blur",
+                "printedName": "blur",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:8MoneyKit7MKThemeV6ShadowV4blur14CoreFoundation7CGFloatVvp",
+                "mangledName": "$s8MoneyKit7MKThemeV6ShadowV4blur12CoreGraphics7CGFloatVvp",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV4blur14CoreFoundation7CGFloatVvg",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV4blur12CoreGraphics7CGFloatVvg",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV4blur14CoreFoundation7CGFloatVvs",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV4blur12CoreGraphics7CGFloatVvs",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV4blur14CoreFoundation7CGFloatVvM",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV4blur12CoreGraphics7CGFloatVvM",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "color",
+                "printedName": "color",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvp",
+                "mangledName": "$s8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvp",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIColor",
+                        "printedName": "UIKit.UIColor",
+                        "usr": "c:objc(cs)UIColor"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvg",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvg",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UIColor",
+                        "printedName": "UIKit.UIColor",
+                        "usr": "c:objc(cs)UIColor"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvs",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvs",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvM",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV5colorSo7UIColorCvM",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "opacity",
+                "printedName": "opacity",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:8MoneyKit7MKThemeV6ShadowV7opacity14CoreFoundation7CGFloatVvp",
+                "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7opacity12CoreGraphics7CGFloatVvp",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7opacity14CoreFoundation7CGFloatVvg",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7opacity12CoreGraphics7CGFloatVvg",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7opacity14CoreFoundation7CGFloatVvs",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7opacity12CoreGraphics7CGFloatVvs",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV7opacity14CoreFoundation7CGFloatVvM",
+                    "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7opacity12CoreGraphics7CGFloatVvM",
+                    "moduleName": "MoneyKit",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(offsetX:offsetY:blur:color:opacity:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Shadow",
+                    "printedName": "MoneyKit.MKTheme.Shadow",
+                    "usr": "s:8MoneyKit7MKThemeV6ShadowV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "hasDefaultArg": true,
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "hasDefaultArg": true,
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "hasDefaultArg": true,
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "hasDefaultArg": true,
+                    "usr": "c:objc(cs)UIColor"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "hasDefaultArg": true,
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:8MoneyKit7MKThemeV6ShadowV7offsetX0E1Y4blur5color7opacityAE14CoreFoundation7CGFloatV_A2MSo7UIColorCAMtcfc",
+                "mangledName": "$s8MoneyKit7MKThemeV6ShadowV7offsetX0E1Y4blur5color7opacityAE12CoreGraphics7CGFloatV_A2MSo7UIColorCAMtcfc",
+                "moduleName": "MoneyKit",
+                "declAttributes": [
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "init_kind": "Designated"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:8MoneyKit7MKThemeV6ShadowV",
+            "mangledName": "$s8MoneyKit7MKThemeV6ShadowV",
+            "moduleName": "MoneyKit",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true
+          },
+          {
+            "kind": "TypeDecl",
             "name": "InteractionStyle",
             "printedName": "InteractionStyle",
             "children": [
@@ -19449,7 +20066,8 @@
                 "moduleName": "MoneyKit",
                 "declAttributes": [
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -19543,7 +20161,8 @@
                 "declAttributes": [
                   "HasInitialValue",
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -19644,7 +20263,8 @@
                 "moduleName": "MoneyKit",
                 "declAttributes": [
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -19729,7 +20349,8 @@
                 "moduleName": "MoneyKit",
                 "declAttributes": [
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -19814,7 +20435,8 @@
                 "moduleName": "MoneyKit",
                 "declAttributes": [
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -19899,7 +20521,8 @@
                 "moduleName": "MoneyKit",
                 "declAttributes": [
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -19984,7 +20607,8 @@
                 "moduleName": "MoneyKit",
                 "declAttributes": [
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -20118,7 +20742,8 @@
                 "mangledName": "$s8MoneyKit7MKThemeV16InteractionStyleV6haptic14highlightColor5scale8duration7damping8velocity7optionsAESb_So7UIColorCSg12CoreGraphics7CGFloatVA3RSo22UIViewAnimationOptionsVtcfc",
                 "moduleName": "MoneyKit",
                 "declAttributes": [
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "init_kind": "Designated"
               }
@@ -20127,602 +20752,9 @@
             "usr": "s:8MoneyKit7MKThemeV16InteractionStyleV",
             "mangledName": "$s8MoneyKit7MKThemeV16InteractionStyleV",
             "moduleName": "MoneyKit",
-            "isFromExtension": true
-          },
-          {
-            "kind": "TypeDecl",
-            "name": "ShadowStyle",
-            "printedName": "ShadowStyle",
-            "children": [
-              {
-                "kind": "Var",
-                "name": "custom",
-                "printedName": "custom",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(MoneyKit.MKTheme.ShadowStyle.Type) -> (MoneyKit.MKTheme.ShadowStyle.Shadow) -> MoneyKit.MKTheme.ShadowStyle",
-                    "children": [
-                      {
-                        "kind": "TypeFunc",
-                        "name": "Function",
-                        "printedName": "(MoneyKit.MKTheme.ShadowStyle.Shadow) -> MoneyKit.MKTheme.ShadowStyle",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ShadowStyle",
-                            "printedName": "MoneyKit.MKTheme.ShadowStyle",
-                            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Shadow",
-                            "printedName": "MoneyKit.MKTheme.ShadowStyle.Shadow",
-                            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V"
-                          }
-                        ]
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Metatype",
-                        "printedName": "MoneyKit.MKTheme.ShadowStyle.Type",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ShadowStyle",
-                            "printedName": "MoneyKit.MKTheme.ShadowStyle",
-                            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "declKind": "EnumElement",
-                "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO6customyA2E0D0VcAEmF",
-                "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO6customyA2E0D0VcAEmF",
-                "moduleName": "MoneyKit"
-              },
-              {
-                "kind": "Var",
-                "name": "none",
-                "printedName": "none",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(MoneyKit.MKTheme.ShadowStyle.Type) -> MoneyKit.MKTheme.ShadowStyle",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ShadowStyle",
-                        "printedName": "MoneyKit.MKTheme.ShadowStyle",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Metatype",
-                        "printedName": "MoneyKit.MKTheme.ShadowStyle.Type",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ShadowStyle",
-                            "printedName": "MoneyKit.MKTheme.ShadowStyle",
-                            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "declKind": "EnumElement",
-                "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO4noneyA2EmF",
-                "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO4noneyA2EmF",
-                "moduleName": "MoneyKit"
-              },
-              {
-                "kind": "TypeDecl",
-                "name": "Shadow",
-                "printedName": "Shadow",
-                "children": [
-                  {
-                    "kind": "Var",
-                    "name": "offsetX",
-                    "printedName": "offsetX",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      }
-                    ],
-                    "declKind": "Var",
-                    "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX14CoreFoundation7CGFloatVvp",
-                    "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX12CoreGraphics7CGFloatVvp",
-                    "moduleName": "MoneyKit",
-                    "declAttributes": [
-                      "HasStorage",
-                      "AccessControl",
-                      "RawDocComment"
-                    ],
-                    "hasStorage": true,
-                    "accessors": [
-                      {
-                        "kind": "Accessor",
-                        "name": "Get",
-                        "printedName": "Get()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX14CoreFoundation7CGFloatVvg",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX12CoreGraphics7CGFloatVvg",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "get"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Set",
-                        "printedName": "Set()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX14CoreFoundation7CGFloatVvs",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX12CoreGraphics7CGFloatVvs",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "set"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Modify",
-                        "printedName": "Modify()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX14CoreFoundation7CGFloatVvM",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX12CoreGraphics7CGFloatVvM",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "_modify"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "Var",
-                    "name": "offsetY",
-                    "printedName": "offsetY",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      }
-                    ],
-                    "declKind": "Var",
-                    "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY14CoreFoundation7CGFloatVvp",
-                    "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY12CoreGraphics7CGFloatVvp",
-                    "moduleName": "MoneyKit",
-                    "declAttributes": [
-                      "HasStorage",
-                      "AccessControl"
-                    ],
-                    "hasStorage": true,
-                    "accessors": [
-                      {
-                        "kind": "Accessor",
-                        "name": "Get",
-                        "printedName": "Get()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY14CoreFoundation7CGFloatVvg",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY12CoreGraphics7CGFloatVvg",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "get"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Set",
-                        "printedName": "Set()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY14CoreFoundation7CGFloatVvs",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY12CoreGraphics7CGFloatVvs",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "set"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Modify",
-                        "printedName": "Modify()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY14CoreFoundation7CGFloatVvM",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetY12CoreGraphics7CGFloatVvM",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "_modify"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "Var",
-                    "name": "blur",
-                    "printedName": "blur",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      }
-                    ],
-                    "declKind": "Var",
-                    "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur14CoreFoundation7CGFloatVvp",
-                    "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur12CoreGraphics7CGFloatVvp",
-                    "moduleName": "MoneyKit",
-                    "declAttributes": [
-                      "HasStorage",
-                      "AccessControl"
-                    ],
-                    "hasStorage": true,
-                    "accessors": [
-                      {
-                        "kind": "Accessor",
-                        "name": "Get",
-                        "printedName": "Get()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur14CoreFoundation7CGFloatVvg",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur12CoreGraphics7CGFloatVvg",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "get"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Set",
-                        "printedName": "Set()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur14CoreFoundation7CGFloatVvs",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur12CoreGraphics7CGFloatVvs",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "set"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Modify",
-                        "printedName": "Modify()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur14CoreFoundation7CGFloatVvM",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V4blur12CoreGraphics7CGFloatVvM",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "_modify"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "Var",
-                    "name": "color",
-                    "printedName": "color",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UIColor",
-                        "printedName": "UIKit.UIColor",
-                        "usr": "c:objc(cs)UIColor"
-                      }
-                    ],
-                    "declKind": "Var",
-                    "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvp",
-                    "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvp",
-                    "moduleName": "MoneyKit",
-                    "declAttributes": [
-                      "HasStorage",
-                      "AccessControl"
-                    ],
-                    "hasStorage": true,
-                    "accessors": [
-                      {
-                        "kind": "Accessor",
-                        "name": "Get",
-                        "printedName": "Get()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "UIColor",
-                            "printedName": "UIKit.UIColor",
-                            "usr": "c:objc(cs)UIColor"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvg",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvg",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "get"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Set",
-                        "printedName": "Set()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "UIColor",
-                            "printedName": "UIKit.UIColor",
-                            "usr": "c:objc(cs)UIColor"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvs",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvs",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "set"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Modify",
-                        "printedName": "Modify()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvM",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V5colorSo7UIColorCvM",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "_modify"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "Var",
-                    "name": "opacity",
-                    "printedName": "opacity",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      }
-                    ],
-                    "declKind": "Var",
-                    "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity14CoreFoundation7CGFloatVvp",
-                    "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity12CoreGraphics7CGFloatVvp",
-                    "moduleName": "MoneyKit",
-                    "declAttributes": [
-                      "HasStorage",
-                      "AccessControl"
-                    ],
-                    "hasStorage": true,
-                    "accessors": [
-                      {
-                        "kind": "Accessor",
-                        "name": "Get",
-                        "printedName": "Get()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity14CoreFoundation7CGFloatVvg",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity12CoreGraphics7CGFloatVvg",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "get"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Set",
-                        "printedName": "Set()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity14CoreFoundation7CGFloatVvs",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity12CoreGraphics7CGFloatVvs",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "set"
-                      },
-                      {
-                        "kind": "Accessor",
-                        "name": "Modify",
-                        "printedName": "Modify()",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Void",
-                            "printedName": "()"
-                          }
-                        ],
-                        "declKind": "Accessor",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity14CoreFoundation7CGFloatVvM",
-                        "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7opacity12CoreGraphics7CGFloatVvM",
-                        "moduleName": "MoneyKit",
-                        "implicit": true,
-                        "accessorKind": "_modify"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "Constructor",
-                    "name": "init",
-                    "printedName": "init(offsetX:offsetY:blur:color:opacity:)",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Shadow",
-                        "printedName": "MoneyKit.MKTheme.ShadowStyle.Shadow",
-                        "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "hasDefaultArg": true,
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "hasDefaultArg": true,
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "hasDefaultArg": true,
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "UIColor",
-                        "printedName": "UIKit.UIColor",
-                        "hasDefaultArg": true,
-                        "usr": "c:objc(cs)UIColor"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "hasDefaultArg": true,
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      }
-                    ],
-                    "declKind": "Constructor",
-                    "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX0F1Y4blur5color7opacityAG14CoreFoundation7CGFloatV_A2OSo7UIColorCAOtcfc",
-                    "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V7offsetX0F1Y4blur5color7opacityAG12CoreGraphics7CGFloatV_A2OSo7UIColorCAOtcfc",
-                    "moduleName": "MoneyKit",
-                    "declAttributes": [
-                      "AccessControl",
-                      "RawDocComment"
-                    ],
-                    "init_kind": "Designated"
-                  }
-                ],
-                "declKind": "Struct",
-                "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO0D0V",
-                "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO0D0V",
-                "moduleName": "MoneyKit",
-                "declAttributes": [
-                  "AccessControl"
-                ]
-              }
+            "declAttributes": [
+              "RawDocComment"
             ],
-            "declKind": "Enum",
-            "usr": "s:8MoneyKit7MKThemeV11ShadowStyleO",
-            "mangledName": "$s8MoneyKit7MKThemeV11ShadowStyleO",
-            "moduleName": "MoneyKit",
             "isFromExtension": true
           }
         ],
@@ -23826,7 +23858,10 @@
             "declKind": "EnumElement",
             "usr": "s:8MoneyKit6MKGameO5snakeyA2CmF",
             "mangledName": "$s8MoneyKit6MKGameO5snakeyA2CmF",
-            "moduleName": "MoneyKit"
+            "moduleName": "MoneyKit",
+            "declAttributes": [
+              "RawDocComment"
+            ]
           },
           {
             "kind": "Function",
@@ -23930,7 +23965,8 @@
         "mangledName": "$s8MoneyKit6MKGameO",
         "moduleName": "MoneyKit",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "RawDocComment"
         ],
         "conformances": [
           {
@@ -27040,6 +27076,20 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "MoneyKit"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MoneyKit"
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -28275,6 +28325,13 @@
       "value": "\"MoneyKit.MKExternalIssueSubmissionViewController\""
     },
     {
+      "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/Views\/MKSecondaryButton.swift",
+      "kind": "IntegerLiteral",
+      "offset": 118,
+      "length": 1,
+      "value": "1"
+    },
+    {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Controllers\/Quick Link\/MKQuickLinkOTPCodeEntryViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 756,
@@ -28690,37 +28747,51 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Models\/MKInstitutionSelectionViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1619,
+      "offset": 1660,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Models\/MKInstitutionSelectionViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1667,
+      "offset": 1708,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Models\/MKInstitutionSelectionViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1720,
+      "offset": 1761,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Models\/MKInstitutionSelectionViewModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1791,
+      "offset": 1832,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Models\/MKInstitutionSelectionViewModel.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1889,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Models\/MKInstitutionSelectionViewModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2768,
+      "offset": 3491,
       "length": 2,
       "value": "50"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Models\/MKInstitutionSelectionViewModel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3538,
+      "length": 1,
+      "value": "3"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/Views\/Cells\/MKSelectionTableViewCell.swift",
@@ -29040,49 +29111,49 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKPageSheetStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 5043,
+      "offset": 5057,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKPageSheetStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 5080,
+      "offset": 5094,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKPageSheetStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 5123,
+      "offset": 5137,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKPageSheetStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 5162,
+      "offset": 5176,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKPageSheetStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 5201,
+      "offset": 5215,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKPageSheetStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 5243,
+      "offset": 5257,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKPageSheetStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 5282,
+      "offset": 5296,
       "length": 2,
       "value": "24"
     },
@@ -29775,21 +29846,14 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Controllers\/MKLoginEntryViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1468,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Controllers\/MKLoginEntryViewController.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1520,
+      "offset": 1472,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Controllers\/MKLoginEntryViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 21505,
+      "offset": 21457,
       "length": 3,
       "value": "0.3"
     },
@@ -29999,28 +30063,28 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKTheme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5666,
+      "offset": 5894,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKTheme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5704,
+      "offset": 5928,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKTheme.swift",
       "kind": "IntegerLiteral",
-      "offset": 5739,
+      "offset": 5959,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKTheme.swift",
       "kind": "FloatLiteral",
-      "offset": 5818,
+      "offset": 6030,
       "length": 3,
       "value": "1.0"
     },
@@ -30279,14 +30343,14 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Controllers\/MKInstitutionSelectionViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2794,
+      "offset": 2943,
       "length": 3,
       "value": "500"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/View Controllers\/MKInstitutionSelectionViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 18786,
+      "offset": 21154,
       "length": 5,
       "value": "false"
     },
@@ -30377,7 +30441,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/Core\/Public\/MKSettings.swift",
       "kind": "BooleanLiteral",
-      "offset": 1074,
+      "offset": 1078,
       "length": 5,
       "value": "false"
     },
@@ -31000,14 +31064,14 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKFullScreenStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 1884,
+      "offset": 1887,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Public\/MKFullScreenStyle.swift",
       "kind": "IntegerLiteral",
-      "offset": 1922,
+      "offset": 1925,
       "length": 2,
       "value": "10"
     },
@@ -31224,21 +31288,21 @@
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/Views\/MKPrimaryButton.swift",
       "kind": "BooleanLiteral",
-      "offset": 687,
+      "offset": 973,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/Views\/MKPrimaryButton.swift",
       "kind": "IntegerLiteral",
-      "offset": 739,
+      "offset": 1025,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/MoneyKit\/UI\/Internal\/Views\/MKPrimaryButton.swift",
       "kind": "FloatLiteral",
-      "offset": 749,
+      "offset": 1035,
       "length": 3,
       "value": "0.2"
     },
