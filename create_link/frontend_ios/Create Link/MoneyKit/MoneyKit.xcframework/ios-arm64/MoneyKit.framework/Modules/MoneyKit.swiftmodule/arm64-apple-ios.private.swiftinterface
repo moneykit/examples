@@ -349,6 +349,18 @@ extension MoneyKit.MKTheme {
     case capsule
     case none
   }
+  public enum ShadowStyle {
+    case custom(_: MoneyKit.MKTheme.Shadow)
+    case none
+  }
+  public struct Shadow {
+    public var offsetX: CoreFoundation.CGFloat
+    public var offsetY: CoreFoundation.CGFloat
+    public var blur: CoreFoundation.CGFloat
+    public var color: UIKit.UIColor
+    public var opacity: CoreFoundation.CGFloat
+    public init(offsetX: CoreFoundation.CGFloat = 0, offsetY: CoreFoundation.CGFloat = 0, blur: CoreFoundation.CGFloat = 0, color: UIKit.UIColor = .black, opacity: CoreFoundation.CGFloat = 1.0)
+  }
   public struct InteractionStyle {
     public var haptic: Swift.Bool
     public var highlightColor: UIKit.UIColor?
@@ -358,18 +370,6 @@ extension MoneyKit.MKTheme {
     public var velocity: CoreFoundation.CGFloat
     public var options: UIKit.UIView.AnimationOptions
     public init(haptic: Swift.Bool, highlightColor: UIKit.UIColor?, scale: CoreFoundation.CGFloat, duration: CoreFoundation.CGFloat, damping: CoreFoundation.CGFloat, velocity: CoreFoundation.CGFloat, options: UIKit.UIView.AnimationOptions)
-  }
-  public enum ShadowStyle {
-    case custom(_: MoneyKit.MKTheme.ShadowStyle.Shadow)
-    case none
-    public struct Shadow {
-      public var offsetX: CoreFoundation.CGFloat
-      public var offsetY: CoreFoundation.CGFloat
-      public var blur: CoreFoundation.CGFloat
-      public var color: UIKit.UIColor
-      public var opacity: CoreFoundation.CGFloat
-      public init(offsetX: CoreFoundation.CGFloat = 0, offsetY: CoreFoundation.CGFloat = 0, blur: CoreFoundation.CGFloat = 0, color: UIKit.UIColor = .black, opacity: CoreFoundation.CGFloat = 1.0)
-    }
   }
 }
 public enum MKUserInterfaceLevel : Swift.Int {
