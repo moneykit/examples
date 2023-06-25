@@ -55,12 +55,14 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.6)
       tilt (~> 2.0)
+    sinatra-cors (1.2.0)
     tilt (2.1.0)
     unicode-display_width (2.4.2)
 
 PLATFORMS
   aarch64-linux
   arm64-darwin-21
+  arm64-darwin-22
 
 DEPENDENCIES
   debug (~> 1.7)
@@ -69,6 +71,7 @@ DEPENDENCIES
   puma (~> 6.2)
   rubocop (~> 1.50)
   sinatra (~> 3.0)
+  sinatra-cors (~> 1.2)
 
 BUNDLED WITH
    2.4.10
