@@ -37,12 +37,15 @@ function exchangeToken(token: string) {
 }
 
 function App() {
-  const [moneykitLinkID, setMoneykitLinkID] = useState<string>("");
+  const [isLinking, setIsLinking] = useState(false);
+  const [moneykitLinkID, setMoneykitLinkID] = useState("");
 
   const onClickStart = async () => {
+    setIsLinking(true);
     startLink(async (exchangeableToken, institution) => {
       const { moneykit_link_id } = await exchangeToken(exchangeableToken);
       setMoneykitLinkID(moneykit_link_id);
+      setIsLinking(false);
     });
   };
 
@@ -60,7 +63,7 @@ function App() {
           onClick={onClickStart}
           className="text-lg rounded-full bg-blue-500 text-white px-4 py-2"
         >
-          Start Link
+          {isLinking ? "Link In Progress..." : "Start Link"}
         </button>
       </div>
     </main>
