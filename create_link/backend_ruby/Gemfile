@@ -14,3 +14,5 @@ gem 'rubocop', '~> 1.50', group: :development
 gem 'debug', '~> 1.7', group: :development
 
 gem 'dotenv', '~> 2.8'
+
+gem "sinatra-cors", "~> 1.2"

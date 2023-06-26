@@ -1,0 +1,22 @@
+{
+  "name": "@moneykit/moneykit",
+  "version": "0.1.0",
+  "description": "MoneyKit web launcher.",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moneykit/moneykit-web"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "MoneyKit",
+  "devDependencies": {
+    "tsup": "^6.6.3"
+  },
+  "dependencies": {},
+  "license": "UNLICENSED"
+}

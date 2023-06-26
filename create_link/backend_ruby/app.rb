@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
 require 'sinatra'
+require 'sinatra/cors'
 require 'moneykit'
 require 'debug'
 
 set :port, 8000
 set :bind, '0.0.0.0'
 set :default_content_type, 'application/json'
+
+# CORS
+set :allow_origin, "*"
+set :allow_methods, "GET,HEAD,POST"
+set :allow_headers, "content-type"
 
 def create_moneykit_client
   # Generate a bearer access token that is valid for 60 minutes.
