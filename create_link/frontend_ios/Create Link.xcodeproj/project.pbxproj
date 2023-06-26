@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DA295C22A49892B00E0969C /* MoneyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0DA295C12A49892B00E0969C /* MoneyKit */; };
 		0DABD8C929FAB77100E0C7C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DABD8C829FAB77100E0C7C5 /* Assets.xcassets */; };
 		0DABD8CC29FAB77100E0C7C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DABD8CA29FAB77100E0C7C5 /* LaunchScreen.storyboard */; };
 		0DABD8D329FABA7400E0C7C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8BF29FAB77100E0C7C5 /* AppDelegate.swift */; };
@@ -26,7 +27,6 @@
 		0DABD8E829FABAB200E0C7C5 /* LinkApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8E729FABAB200E0C7C5 /* LinkApiClient.swift */; };
 		0DABD8EC29FABC2200E0C7C5 /* LinkSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8EB29FABC2200E0C7C5 /* LinkSessionRequest.swift */; };
 		0DABD8EF29FAC10800E0C7C5 /* ApiClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8EE29FAC10800E0C7C5 /* ApiClientType.swift */; };
-		0DABD9022A01986B00E0C7C5 /* MoneyKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DABD9012A01986B00E0C7C5 /* MoneyKit.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +50,6 @@
 		0DABD8E729FABAB200E0C7C5 /* LinkApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkApiClient.swift; sourceTree = "<group>"; };
 		0DABD8EB29FABC2200E0C7C5 /* LinkSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkSessionRequest.swift; sourceTree = "<group>"; };
 		0DABD8EE29FAC10800E0C7C5 /* ApiClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientType.swift; sourceTree = "<group>"; };
-		0DABD9012A01986B00E0C7C5 /* MoneyKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MoneyKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DABD9022A01986B00E0C7C5 /* MoneyKit.xcframework in Frameworks */,
+				0DA295C22A49892B00E0969C /* MoneyKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,20 +125,11 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		0DABD8B729FAB70700E0C7C5 /* MoneyKit */ = {
-			isa = PBXGroup;
-			children = (
-				0DABD9012A01986B00E0C7C5 /* MoneyKit.xcframework */,
-			);
-			path = MoneyKit;
-			sourceTree = "<group>";
-		};
 		0DABD8BE29FAB77100E0C7C5 /* Create Link */ = {
 			isa = PBXGroup;
 			children = (
 				0DABD8ED29FAC0EB00E0C7C5 /* Protocols */,
 				0DABD8E629FABA9700E0C7C5 /* Services */,
-				0DABD8B729FAB70700E0C7C5 /* MoneyKit */,
 				0DABD8AE29FAB6E600E0C7C5 /* Utils */,
 				0DABD8AD29FAB6DF00E0C7C5 /* Models */,
 				0DABD8AA29FAB6D100E0C7C5 /* Controls */,
@@ -188,6 +178,9 @@
 			dependencies = (
 			);
 			name = "Create Link";
+			packageProductDependencies = (
+				0DA295C12A49892B00E0969C /* MoneyKit */,
+			);
 			productName = "Create Link";
 			productReference = 0DABD8BD29FAB77100E0C7C5 /* Create Link.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +209,9 @@
 				Base,
 			);
 			mainGroup = 0DABD87829FAB3C700E0C7C5;
+			packageReferences = (
+				0DA295C02A49892B00E0969C /* XCRemoteSwiftPackageReference "moneykit-ios" */,
+			);
 			productRefGroup = 0DABD88229FAB3C700E0C7C5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -466,6 +462,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0DA295C02A49892B00E0969C /* XCRemoteSwiftPackageReference "moneykit-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/moneykit/moneykit-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0DA295C12A49892B00E0969C /* MoneyKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DA295C02A49892B00E0969C /* XCRemoteSwiftPackageReference "moneykit-ios" */;
+			productName = MoneyKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0DABD87929FAB3C700E0C7C5 /* Project object */;
 }
