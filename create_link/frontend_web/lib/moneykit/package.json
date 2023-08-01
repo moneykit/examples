@@ -1,22 +1,16 @@
 {
-  "name": "@moneykit/moneykit",
-  "version": "0.1.0",
-  "description": "MoneyKit web launcher.",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "type": "module",
+  "name": "@moneykit/connect",
+  "description": "MoneyKit Connect launcher for web.",
+  "version": "0.1.4",
+  "author": "MoneyKit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/moneykit/moneykit-web"
+    "url": "https://github.com/moneykit/connect-js.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "query-string": "^8.1.0"
   },
-  "keywords": [],
-  "author": "MoneyKit",
-  "devDependencies": {
-    "tsup": "^6.6.3"
-  },
-  "dependencies": {},
-  "license": "UNLICENSED"
+  "module": "index.js",
+  "type": "module",
+  "main": "index.js"
 }
