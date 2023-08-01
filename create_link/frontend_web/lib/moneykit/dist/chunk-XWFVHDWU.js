@@ -1,1 +1,0 @@
-var o=(e=>(e[e.largeTitle=0]="largeTitle",e[e.title1=1]="title1",e[e.title2=2]="title2",e[e.title3=3]="title3",e[e.body=4]="body",e[e.smallBody=5]="smallBody",e[e.button=6]="button",e[e.input=7]="input",e))(o||{});export{o as a};
