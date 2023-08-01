@@ -3,9 +3,8 @@ from typing import Annotated
 
 import httpx
 import pydantic
-from fastapi import APIRouter, Body, status
-
 from app.settings import get_settings
+from fastapi import APIRouter, Body, status
 
 router = APIRouter(prefix="/linking")
 
@@ -18,7 +17,9 @@ def _get_access_token(moneykit_url: str, client_id: str, client_secret: str) -> 
             "grant_type": "client_credentials",
         }
 
-        response = httpx.post(f"{moneykit_url}/auth/token", data=token_request_body, timeout=5)
+        response = httpx.post(
+            f"{moneykit_url}/auth/token", data=token_request_body, timeout=5
+        )
         response.raise_for_status()
         response_body = response.json()
         return response_body["access_token"]
@@ -35,7 +36,9 @@ def create_moneykit_client() -> httpx.Client:
     # is returned by a request.
 
     access_token = _get_access_token(
-        settings.moneykit_url, settings.moneykit_client_id, settings.moneykit_client_secret.get_secret_value()
+        settings.moneykit_url,
+        settings.moneykit_client_id,
+        settings.moneykit_client_secret.get_secret_value(),
     )
     client = httpx.Client(
         base_url=settings.moneykit_url,
@@ -61,7 +64,11 @@ class ExchangeTokenForLinkResponse(pydantic.BaseModel):
     institution_name: str
 
 
-@router.post("/session", status_code=status.HTTP_201_CREATED, response_model=NewLinkSessionResponse)
+@router.post(
+    "/session",
+    status_code=status.HTTP_201_CREATED,
+    response_model=NewLinkSessionResponse,
+)
 async def new_link_session() -> NewLinkSessionResponse:
     client = create_moneykit_client()
     # Prefetch available products for testing.
@@ -70,6 +77,7 @@ async def new_link_session() -> NewLinkSessionResponse:
         json={
             "customer_user": {"id": "examples-create_link-test-user"},
             "link_tags": ["examples:create_link"],
+            "redirect_uri": "https://example.com",
             "settings": {
                 "link_permissions": {
                     "requested": [
@@ -109,7 +117,11 @@ async def new_link_session() -> NewLinkSessionResponse:
     return NewLinkSessionResponse(link_session_token=link_session_token)
 
 
-@router.post("/exchange-token", status_code=status.HTTP_202_ACCEPTED, response_model=ExchangeTokenForLinkResponse)
+@router.post(
+    "/exchange-token",
+    status_code=status.HTTP_202_ACCEPTED,
+    response_model=ExchangeTokenForLinkResponse,
+)
 async def exchange_token_for_link(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
 ) -> ExchangeTokenForLinkResponse:
