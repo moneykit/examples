@@ -4,11 +4,10 @@ from typing import Annotated
 import moneykit
 import moneykit.models
 import pydantic
+from app.settings import get_settings
 from fastapi import APIRouter, Body, status
 from moneykit.api.access_token import generate_access_token
 from moneykit.api.link_session import create_link_session, exchange_token
-
-from app.settings import get_settings
 
 router = APIRouter(prefix="/linking")
 
@@ -32,7 +31,10 @@ def create_moneykit_client() -> moneykit.AuthenticatedClient:
         ),
     )
 
-    client = moneykit.AuthenticatedClient(base_url=settings.moneykit_url, token=response.access_token)
+    client = moneykit.AuthenticatedClient(
+        base_url=settings.moneykit_url, token=response.access_token
+    )
+
     return client
 
 
@@ -49,14 +51,21 @@ class ExchangeTokenForLinkResponse(pydantic.BaseModel):
     institution_name: str
 
 
-@router.post("/session", status_code=status.HTTP_201_CREATED, response_model=NewLinkSessionResponse)
+@router.post(
+    "/session",
+    status_code=status.HTTP_201_CREATED,
+    response_model=NewLinkSessionResponse,
+)
 async def new_link_session() -> NewLinkSessionResponse:
     client = create_moneykit_client()
     response = create_link_session.sync(
         client=client,
         json_body=moneykit.models.CreateLinkSessionRequest(
-            customer_user=moneykit.models.LinkSessionCustomerUser(id="examples-create_link-test-user"),
+            customer_user=moneykit.models.LinkSessionCustomerUser(
+                id="examples-create_link-test-user"
+            ),
             link_tags=["examples:create_link"],
+            redirect_uri="https://example.com",
             settings=moneykit.models.LinkSessionSettingOverrides(
                 link_permissions=moneykit.models.LinkPermissions(
                     requested=[
@@ -103,13 +112,20 @@ async def new_link_session() -> NewLinkSessionResponse:
     return NewLinkSessionResponse(link_session_token=response.link_session_token)
 
 
-@router.post("/exchange-token", status_code=status.HTTP_202_ACCEPTED, response_model=ExchangeTokenForLinkResponse)
+@router.post(
+    "/exchange-token",
+    status_code=status.HTTP_202_ACCEPTED,
+    response_model=ExchangeTokenForLinkResponse,
+)
 async def exchange_token_for_link(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
 ) -> ExchangeTokenForLinkResponse:
     client = create_moneykit_client()
     response = exchange_token.sync(
-        client=client, json_body=moneykit.models.ExchangeTokenRequest(exchangeable_token=body.exchangeable_token)
+        client=client,
+        json_body=moneykit.models.ExchangeTokenRequest(
+            exchangeable_token=body.exchangeable_token
+        ),
     )
     print(f"MoneyKit link id: {response.link_id}")
     return ExchangeTokenForLinkResponse(

@@ -53,6 +53,7 @@ post '/linking/session' do
       {
         customer_user: { id: 'examples-create_link-test-user' },
         link_tags: ['examples:create_link'],
+        redirect_uri: "https://example.com",
         settings: {
           link_permissions: {
             requested: [
