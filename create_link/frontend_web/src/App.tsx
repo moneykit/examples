@@ -1,6 +1,5 @@
 import ky from "ky";
-import moneykit from "@moneykit/moneykit";
-import type { LinkedInstitution } from "@moneykit/moneykit";
+import moneykit from "@moneykit/connect";
 
 import moneykitLogo from "./assets/moneykit-logo.svg";
 import { useState } from "react";
@@ -21,7 +20,7 @@ function createLinkSession() {
 }
 
 async function startLink(
-  onSuccess: (exchangeableToken: string, institution: LinkedInstitution) => void
+  onSuccess: (exchangeableToken: string, institution: object) => void
 ) {
   const { link_session_token } = await createLinkSession();
   const mk = new moneykit();
@@ -50,18 +49,18 @@ function App() {
   };
 
   return (
-    <main className="w-full h-screen flex items-center justify-center bg-gray-200">
+    <main className="flex items-center justify-center w-full h-screen bg-gray-200">
       <div className="flex flex-col h-[600px] w-96 border px-4 py-8 shadow bg-white justify-between">
         <img src={moneykitLogo} className="h-12 mb-16" alt="MoneyKit logo" />
         {moneykitLinkID && (
-          <div className="font-mono text-white bg-gray-700 p-4 rounded-lg">
-            <p className="font-semibold mb-1">link_id</p>
+          <div className="p-4 font-mono text-white bg-gray-700 rounded-lg">
+            <p className="mb-1 font-semibold">link_id</p>
             <p>{moneykitLinkID}</p>
           </div>
         )}
         <button
           onClick={onClickStart}
-          className="text-lg rounded-full bg-blue-500 text-white px-4 py-2"
+          className="px-4 py-2 text-lg text-white bg-blue-500 rounded-full"
         >
           {isLinking ? "Link In Progress..." : "Start Link"}
         </button>
