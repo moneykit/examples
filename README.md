@@ -105,6 +105,6 @@ If you have Python and Poetry installed, you can also run a tiny demo app includ
    poetry install
    # ...installs requirements
 
-   python show_accounts.py mk_AfZGwnseamMJQcAWXqk7iL
+   poetry run python show_accounts.py mk_AfZGwnseamMJQcAWXqk7iL
    # prints accounts...
    ```
