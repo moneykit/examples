@@ -99,3 +99,12 @@ using the MoneyKit API:  https://docs.moneykit.com.
    --header 'Authorization: Bearer { your_auth_token }'
    ```
 
+If you have Python and Poetry installed, you can also run a tiny demo app included in this repo:
+
+   ```sh
+   poetry install
+   # ...installs requirements
+
+   python show_accounts.py mk_AfZGwnseamMJQcAWXqk7iL
+   # prints accounts...
+   ```
