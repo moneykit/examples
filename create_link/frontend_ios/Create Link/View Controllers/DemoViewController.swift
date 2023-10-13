@@ -185,7 +185,7 @@ final class DemoViewController: UIViewController {
             linkHandler = MKLinkHandler(configuration: configuration)
 
             let presentationMethod = MKPresentationMethod.modal(presentingViewController: self)
-            linkHandler?.presentLinkFlow(using: presentationMethod)
+            linkHandler?.presentInstitutionSelectionFlow(using: presentationMethod)
         } catch let error {
             print("Configuration error - \(error.localizedDescription)")
         }

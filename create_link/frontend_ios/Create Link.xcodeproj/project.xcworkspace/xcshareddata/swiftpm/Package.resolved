@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/moneykit/moneykit-ios.git",
       "state" : {
-        "revision" : "67fe7e582cf884c0e909f3cc9c66e0ba8c5d4097",
-        "version" : "1.0.4"
+        "revision" : "66bd0cb972c9605673b649d4f8a83fdebac6e9be",
+        "version" : "1.1.4"
       }
     }
   ],
