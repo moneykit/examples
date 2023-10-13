@@ -68,9 +68,9 @@ https://user-images.githubusercontent.com/7124846/235194069-e2d65111-1440-4f85-a
    npm run dev
    ```
 
-3. At this point, the frontend should be running on port 3000 (in npm) and you should see "Local:  **http://localhost:3000**".
+3. At this point, the frontend should be running on port 3000 and you should see "Local:  **http://localhost:3000**".
 
-4. Click that to visit `http://localhost:3000` in your browser, and create a new link.
+4. Visit `http://localhost:3000` in your browser, and create a new link.
 
 ## Get some account data!
 
@@ -94,12 +94,12 @@ using the MoneyKit API:  https://docs.moneykit.com.
 
    # get accounts
    curl --request GET
-   --url 'https://production.moneykit.com/links/{link_id}/accounts'
+   --url 'https://production.moneykit.com/links/YOUR_LINK_ID/accounts'
    --header 'accept: application/json'
-   --header 'Authorization: Bearer { your_auth_token }'
+   --header 'Authorization: Bearer YOUR_AUTH_TOKEN'
    ```
 
-If you have Python and Poetry installed, you can also run a tiny demo app included in this repo:
+A tiny demo app is also included which will take your link ID and request your accounts for you (requires Python and Poetry to be installed on your machine).  That app is in the root of the repo.  Install and run it like this:
 
    ```sh
    poetry install
