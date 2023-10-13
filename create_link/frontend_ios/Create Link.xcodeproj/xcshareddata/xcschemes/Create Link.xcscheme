@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1420"
+   LastUpgradeVersion = "1500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0DABD88029FAB3C700E0C7C5"
+               BlueprintIdentifier = "0DABD8BC29FAB77100E0C7C5"
                BuildableName = "Create Link.app"
                BlueprintName = "Create Link"
                ReferencedContainer = "container:Create Link.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0DABD88029FAB3C700E0C7C5"
+            BlueprintIdentifier = "0DABD8BC29FAB77100E0C7C5"
             BuildableName = "Create Link.app"
             BlueprintName = "Create Link"
             ReferencedContainer = "container:Create Link.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0DABD88029FAB3C700E0C7C5"
+            BlueprintIdentifier = "0DABD8BC29FAB77100E0C7C5"
             BuildableName = "Create Link.app"
             BlueprintName = "Create Link"
             ReferencedContainer = "container:Create Link.xcodeproj">
