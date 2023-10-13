@@ -26,21 +26,25 @@ This example has a backend using the `moneykit` Python sdk and another version t
 
 ### Getting started
 
-1. Copy or symlink your `.env` to `create_link/.env`
+1. Copy the `.env` you created above to `create_link/.env`
 
    ```sh
-   ln -s .env create_link/.env
+   cp .env create_link/.env
    ```
 
-2. Launch your preferred backend.
+2. Change directories into `create_link` and launch your preferred backend.
 
    ```sh
-   dcr --rm --service-ports backend-python
+   cd create_link
+
+   docker compose run --rm --service-ports backend-python
    # or
-   dcr --rm --service-ports backend-python-httpx
+   docker compose run --rm --service-ports backend-python-httpx
    ```
 
-3. Launch your preferred frontend:
+3. At this point, the backend should be running on port 8000 (in docker) and you should see "Uvicorn running on **http://0.0.0.0:8000**".
+
+4. Now launch your preferred frontend:
 
 **iOS:**
 
@@ -52,10 +56,55 @@ https://user-images.githubusercontent.com/7124846/235194069-e2d65111-1440-4f85-a
 
 **Web:**
 
-1. Navigate to the frontend web project: `create_link/frontend_web`
+1. In a separate shell, change directories to the frontend web project:
+
+   ```sh
+   cd create_link/frontend_web
+   ```
+
 2. Install dependencies and start the server.
    ```sh
    npm install
    npm run dev
    ```
-3. Visit `http://localhost:3000` in your browser and create a new link.
+
+3. At this point, the frontend should be running on port 3000 and you should see "Local:  **http://localhost:3000**".
+
+4. Visit `http://localhost:3000` in your browser, and create a new link.
+
+## Get some account data!
+
+If you've followed the steps above, created a new link, and clicked Next all the way to the end, you should have been rewarded with a panel that shows a new `link_id`:
+
+   > **link_id**<br>
+   > mk_AfZGwnseamMJQcAWXqk7iL
+
+You can now use Postman, curl, or any HTTP client to request accounts, balances, and other data about that link
+using the MoneyKit API:  https://docs.moneykit.com.
+
+   ```sh
+   # create an access_token
+   curl --request POST \
+   --url 'https://production.moneykit.com/auth/token'
+   --header 'accept: application/json'
+   --header 'content-type: application/x-www-form-urlencoded'
+   --data 'grant_type: client_credentials'
+   --data 'client_id: your_client_id'
+   --data 'client_secret: your_secret'
+
+   # get accounts
+   curl --request GET
+   --url 'https://production.moneykit.com/links/YOUR_LINK_ID/accounts'
+   --header 'accept: application/json'
+   --header 'Authorization: Bearer YOUR_AUTH_TOKEN'
+   ```
+
+A tiny demo app is also included which will take your link ID and request your accounts for you (requires Python and Poetry to be installed on your machine).  That app is in the root of the repo.  Install and run it like this:
+
+   ```sh
+   poetry install
+   # ...installs requirements
+
+   poetry run python show_accounts.py mk_AfZGwnseamMJQcAWXqk7iL
+   # prints accounts...
+   ```
