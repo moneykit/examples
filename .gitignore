@@ -2,3 +2,8 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+.venv
+node_modules
+__pycache__/
+*.py[cod]
+*$py.class

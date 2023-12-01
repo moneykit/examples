@@ -1,0 +1,181 @@
+#!/usr/bin/env python
+
+"""A set of CLI commands to efficiently sync transactions to a database from a link that has already been created.
+"""
+
+import functools
+import logging
+import os
+
+import db
+import moneykit
+import sqlalchemy
+import sqlalchemy.exc
+import typer
+from dotenv import load_dotenv
+from rich import print
+from sqlalchemy.orm import Session
+
+load_dotenv()
+
+cli = typer.Typer()
+logger = logging.getLogger("example.cli")
+
+MONEYKIT_URL = os.environ["MONEYKIT_URL"]
+CLIENT_ID = os.environ["MONEYKIT_CLIENT_ID"]
+CLIENT_SECRET = os.environ["MONEYKIT_CLIENT_SECRET"]
+
+
+@functools.lru_cache
+def moneykit_client() -> moneykit.ApiClient:
+    """Generates a Bearer token from your client id and secret to access MoneyKit.
+
+    This bearer token will expire. This method does not show regenerating the token on/before expiry for simplicity.
+
+    :returns: An authenticated client
+    """
+    # Generate a bearer access token that is valid for 60 minutes.
+    # This client _should_ be cached to avoid regenerating a token on every request.
+    # The bearer token should be regenerated before expiry or after a `api_error.auth.expired_access_token` error code
+    # is returned by a request.
+
+    config = moneykit.Configuration(host=MONEYKIT_URL)
+    api_client = moneykit.ApiClient(config)
+
+    logger.debug(f"Authenticating to {MONEYKIT_URL} as {CLIENT_ID}")
+    access_token_api = moneykit.AccessTokenApi(api_client)
+    response = access_token_api.generate_access_token(
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET,
+        grant_type="client_credentials",
+    )
+
+    logger.debug(f"Token will expire in {response.expires_in} seconds")
+    api_client.configuration.access_token = response.access_token
+    return api_client
+
+
+@cli.command()
+def create_db() -> None:
+    """Create database table for storing transactions"""
+
+    db.Base.metadata.drop_all(db.engine)
+    db.Base.metadata.create_all(db.engine)
+    print("Database initialized")
+
+
+@cli.command()
+def refresh(link_id: str) -> None:
+    """Request a refresh of transactions on a link.
+
+    This can be followed up with the `state` command to track when it completes (or a webhook).
+    """
+    products_api = moneykit.ProductsApi(moneykit_client())
+    products_api.refresh_products(
+        link_id,
+        moneykit.RefreshProductsRequest(products=[moneykit.Product.TRANSACTIONS]),
+    )
+
+    print("Refresh requested")
+
+
+@cli.command()
+def state(link_id: str) -> None:
+    """Print the state of each product showing when it was last refreshed."""
+    links_api = moneykit.LinksApi(moneykit_client())
+    response = links_api.get_link(link_id)
+
+    print("Products: ", response.products)
+
+
+@cli.command()
+def show(link_id: str) -> None:
+    """Print transactions stored in the database for a link."""
+    with Session(db.engine) as session:
+        link = _get_or_create_link(session, link_id)
+        stmt = (
+            sqlalchemy.select(db.Transaction)
+            .where(db.Transaction.link_id == link.id)
+            .order_by(db.Transaction.timestamp)
+        )
+
+        for txn in session.scalars(stmt):
+            print(txn)
+
+    print("Done")
+
+
+@cli.command()
+def apply_diff(link_id: str) -> None:
+    """Look up the most recent transaction sync cursor, ask MoneyKit for the diff since then and apply it to the
+    database.
+    Finally storing the last received cursor in our database so it can be used in the next call.
+    """
+    transactions_api = moneykit.TransactionsApi(moneykit_client())
+
+    with Session(db.engine) as session:
+        link = _get_or_create_link(session, link_id)
+        has_more = True
+        while has_more:
+            # We must consume until `has_more` is False
+            response = transactions_api.get_transactions_diff(
+                link.moneykit_id, cursor=link.transaction_sync_cursor
+            )
+            has_more = response.has_more
+            cursor = response.cursor.next
+            _apply_transactions_diff(session, link.id, response.transactions)
+
+        link.transaction_sync_cursor = cursor
+        session.commit()
+
+
+def _get_or_create_link(session: Session, link_id: str) -> db.Link:
+    try:
+        link = db.Link(moneykit_id=link_id)
+        session.add(link)
+        session.commit()
+    except sqlalchemy.exc.IntegrityError:
+        session.rollback()
+        stmt = sqlalchemy.select(db.Link).where(db.Link.moneykit_id == link_id)
+        link = session.scalar(stmt)
+
+    return link
+
+
+def _apply_transactions_diff(
+    session: Session, link_id: int, diff: moneykit.models.TransactionDiff
+) -> None:
+    print("Transactions diff:", diff)
+    for mk_txn in diff.created:
+        txn = db.Transaction(
+            link_id=link_id,
+            moneykit_id=mk_txn.transaction_id,
+            timestamp=mk_txn.datetime_ or mk_txn.date_,
+            description=mk_txn.description,
+            pending=mk_txn.pending,
+        )
+        session.add(txn)
+    for mk_txn in diff.updated:
+        stmt = (
+            sqlalchemy.update(db.Transaction)
+            .where(db.Transaction.moneykit_id == mk_txn.transaction_id)
+            .values(
+                timestamp=mk_txn.datetime_ or mk_txn.date_,
+                description=mk_txn.description,
+                pending=mk_txn.pending,
+            )
+        )
+        session.execute(stmt)
+    for mk_txn_id in diff.removed:
+        stmt = sqlalchemy.delete(db.Transaction).where(
+            db.Transaction.moneykit_id == mk_txn_id
+        )
+        session.execute(stmt)
+
+
+def run() -> None:
+    cli()
+
+
+if __name__ == "__main__":
+    run()

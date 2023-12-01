@@ -1,0 +1,171 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "dry/cli"
+require 'moneykit'
+require "awesome_print"
+require 'debug'
+
+
+module Foo
+  module CLI
+    module Commands
+      extend Dry::CLI::Registry
+
+      class Refresh < Dry::CLI::Command
+        desc "Request a refresh of a specific product on a link. This can be followed up with the `state` command to track when it completes (or a webhook)."
+
+        argument :product, type: :string, required: true, values: %w[accounts account_numbers identity transactions], desc: "MoneyKit product to refresh"
+        argument :link_id, type: :string, required: true, desc: "Link id"
+
+        def call(product:, link_id:, **)
+          products_api = MoneyKit::ProductsApi.new
+          products_api.refresh_products()
+          puts 'Refresh requested'
+        end
+      end
+
+      class State < Dry::CLI::Command
+        desc "Print the state of each product showing when it was last refreshed."
+
+        argument :link_id, type: :string, required: true, desc: "Link id"
+
+        def call(link_id:, **)
+          links_api = MoneyKit::LinksApi.new
+          response = links_api.get_link(link_id)
+          ap response
+        end
+      end
+
+      class Disconncet < Dry::CLI::Command
+        desc "Disconnect a link."
+
+        argument :link_id, type: :string, required: true, desc: "Link id"
+
+        def call(link_id:, **)
+
+          links_api = MoneyKit::LinksApi.new
+          links_api.disconnect(link_id)
+          puts "Disconnected #{link_id}"
+        end
+      end
+
+      class GetAccounts < Dry::CLI::Command
+        desc "Print all accounts on a link."
+
+        argument :link_id, type: :string, required: true, desc: "Link id"
+
+        def call(link_id:, **)
+          accounts_api = MoneyKit::AccountsApi.new
+          response = accounts_api.get_accounts(link_id)
+          ap response
+        end
+      end
+
+      class GetAccountNumbers < Dry::CLI::Command
+        desc "Print all accounts numbers on a link."
+
+        argument :link_id, type: :string, required: true, desc: "Link id"
+
+        def call(link_id:, **)
+          accounts_api = MoneyKit::AccountsApi.new
+          response = accounts_api.get_account_numbers(link_id)
+          ap response
+        end
+      end
+
+      class GetIdentity < Dry::CLI::Command
+        desc "Print ownership information of accounts on a link."
+
+        argument :link_id, type: :string, required: true, desc: "Link id"
+
+        def call(link_id:, **)
+          identity_api = MoneyKit::IdentityApi.new
+          response = identity_api.get_identities(link_id)
+          ap response
+        end
+      end
+
+      class GetTransactions < Dry::CLI::Command
+        desc "Print all transactions on a link within a date range."
+
+        argument :link_id, type: :string, required: true, desc: "Link id"
+
+        option :start_date, type: :string, default: nil, desc: "Earliest transaction date"
+        option :end_date, type: :string, default: nil, desc: "Most recent transaction date"
+
+        def call(link_id:, start_date: nil, end_date: nil, **)
+          transactions_api = MoneyKit::TransactionsApi.new
+          response = transactions_api.get_transactions(link_id, {:start_date => start_date, :end_date => end_date})
+          puts "Total transactions: #{response.total}"
+          puts "Transactions (page #{response.page}):"
+          ap response.transactions
+
+          transactions_count = response.transactions.count
+          while transactions_count < response.total do
+            response = transactions_api.get_transactions(link_id, {:start_date => start_date, :end_date => end_date, :page => response.page + 1})
+            transactions_count += response.transactions.count
+            puts "Transactions (page #{response.page}):"
+            ap response.transactions
+          end
+        end
+      end
+
+      class GetTransactionsDiff < Dry::CLI::Command
+        desc "Print the change in transactions since <cursor> if no cursor is given, all transactions are printed."
+
+        argument :link_id, type: :string, required: true, desc: "Link id"
+        option :cursor, type: :string, default: nil, desc: "Final cursor from a previous call to this command"
+
+        def call(link_id:, cursor: nil, **)
+          transactions_api = MoneyKit::TransactionsApi.new
+          has_more = true
+          while has_more do
+            response = transactions_api.get_transactions_diff(link_id, {:cursor => cursor})
+            has_more = response.has_more
+            cursor = response.cursor._next
+            puts 'Transactions diff:'
+            ap response
+          end
+          puts "Final cursor: #{response.cursor._next}"
+        end
+      end
+
+      register "refresh", Refresh
+      register "state", State
+      register "disconnect", Disconncet
+      register "get-accounts", GetAccounts
+      register "get-account-numbers", GetAccounts
+      register "get-identity", GetIdentity
+      register "get-transactions", GetTransactions
+      register "get-transactions-diff", GetTransactionsDiff
+    end
+  end
+end
+
+def configure_moneykit_client
+  # Generate a bearer access token that is valid for 60 minutes.
+  # This client should be cached to avoid regenerating a token on every request.
+  # The bearer token should be regenerated before expiry or after a `api_error.auth.expired_access_token` error code
+  # is returned by a request.
+  MoneyKit.configure do |config|
+    # Configure Bearer authorization
+    config.host = ENV['MONEYKIT_URL'] || 'https://api.moneykit.com'
+  end
+
+  access_token_api = MoneyKit::AccessTokenApi.new
+  response =
+    access_token_api.generate_access_token(
+      {
+        grant_type: 'client_credentials',
+        client_id: ENV['MONEYKIT_CLIENT_ID'],
+        client_secret: ENV['MONEYKIT_CLIENT_SECRET']
+      }
+    )
+
+  MoneyKit.configure do |config|
+    config.access_token = response.access_token
+  end
+end
+
+configure_moneykit_client()
+Dry::CLI.new(Foo::CLI::Commands).call

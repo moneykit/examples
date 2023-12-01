@@ -1,47 +1,70 @@
 version: "3"
 
 services:
-  backend-python:
+  backend_python:
     build:
-      context: backend_python
+      context: backend/python
       dockerfile: Dockerfile
     env_file:
       - .env
     environment:
-      BASE_URL: http://localhost:8000
+      FRONTEND_OAUTH_REDIRECT_URI: http://localhost:3000
+    networks:
+      - create_link
     ports:
       - "8000:8000"
     stdin_open: true
     tty: true
     volumes:
-      - "./backend_python/app:/app/app"
+      - "./backend/python/app:/app/app"
 
-  backend-python-httpx:
+  backend_python_without_sdk:
     build:
-      context: backend_python_httpx
+      context: backend/python_without_sdk
       dockerfile: Dockerfile
     env_file:
       - .env
     environment:
-      BASE_URL: http://localhost:8000
+      FRONTEND_OAUTH_REDIRECT_URI: http://localhost:3000
+    networks:
+      - create_link
     ports:
       - "8000:8000"
     stdin_open: true
     tty: true
     volumes:
-      - "./backend_python_httpx/app:/app/app"
+      - "./backend/python_without_sdk/app:/app/app"
 
-  backend-ruby:
+  backend_ruby:
     build:
-      context: backend_ruby
+      context: backend/ruby
       dockerfile: Dockerfile
     env_file:
       - .env
     environment:
-      BASE_URL: http://localhost:8000
+      FRONTEND_OAUTH_REDIRECT_URI: http://localhost:3000
+    networks:
+      - create_link
     ports:
       - "8000:8000"
     stdin_open: true
     tty: true
     volumes:
-      - "./backend_ruby:/app/"
+      - "./backend/ruby:/app/"
+
+  frontend_web:
+    build:
+      context: frontend/web
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    networks:
+      - create_link
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+
+networks:
+  create_link:
+    name: create_link

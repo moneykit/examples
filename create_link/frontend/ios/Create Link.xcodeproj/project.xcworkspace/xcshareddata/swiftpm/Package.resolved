@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "moneykit-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/moneykit/moneykit-ios.git",
+      "state" : {
+        "revision" : "ad35d6937e929db828a220aa92d14730621b2afc",
+        "version" : "1.1.10"
+      }
+    }
+  ],
+  "version" : 2
+}
