@@ -44,10 +44,10 @@ make run frontend=web
 Start up the react frontend
 
 ```sh
-TODO: make run backend=python frontend=web
+make run backend=python frontend=web
 ```
 
-Navigate to http://localhost:TODO and to launch the Connect SDK and connect to sandbox.
+Navigate to http://localhost:3000 and to launch the Connect SDK and connect to sandbox.
 
 ### iOS Example
 
@@ -93,25 +93,4 @@ make run frontend=react_native
 ```
 
 TODO: Screenshots and instructions
-
-
-TODO
-
-**Web:**
-
-1. In a separate shell, change directories to the frontend web project:
-
-   ```sh
-   cd create_link/frontend_web
-   ```
-
-2. Install dependencies and start the server.
-   ```sh
-   npm install
-   npm run dev
-   ```
-
-3. At this point, the frontend should be running on port 3000 and you should see "Local:  **http://localhost:3000**".
-
-4. Visit `http://localhost:3000` in your browser, and create a new link.
 
