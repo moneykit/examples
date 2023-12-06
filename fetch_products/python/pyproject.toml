@@ -10,10 +10,13 @@ mk = 'cli:run'
 
 [tool.poetry.dependencies]
 python = "^3.11"
-moneykit = { version = "^0.1.0a1", allow-prereleases = true }
+moneykit = "^0.1.0"
 typer = "^0.9.0"
 rich = "^13.7.0"
 python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.7"
 
 [build-system]
 requires = ["poetry-core"]
