@@ -24,11 +24,11 @@ GEM
     multipart-post (2.3.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
-    nio4r (2.5.9)
+    nio4r (2.7.0)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
-    puma (6.2.2)
+    puma (6.3.1)
       nio4r (~> 2.0)
     rack (2.2.7)
     rack-protection (3.0.6)
@@ -65,12 +65,13 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-21
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   debug (~> 1.7)
   dotenv (~> 2.8)
   moneykit (~> 0.1.0)
-  puma (~> 6.2)
+  puma (~> 6.3)
   rubocop (~> 1.50)
   sinatra (~> 3.0)
   sinatra-cors (~> 1.2)
