@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'moneykit', '~> 0.1.0.alpha.1'
+gem 'moneykit', '~> 0.1.0'
 
 gem 'rubocop', '~> 1.50', group: :development
 
