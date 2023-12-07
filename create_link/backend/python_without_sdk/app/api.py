@@ -83,6 +83,7 @@ class ExchangeTokenForLinkResponse(pydantic.BaseModel):
     response_model=NewLinkSessionResponse,
 )
 async def new_link_session() -> NewLinkSessionResponse:
+    """Create a link session. This example shows overriding default settings and products."""
     settings = get_settings()
     client = moneykit_client()
     # Prefetch available products for testing.
@@ -141,6 +142,10 @@ async def new_link_session() -> NewLinkSessionResponse:
 async def exchange_token_for_link(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
 ) -> ExchangeTokenForLinkResponse:
+    """Exchange the Connect SDK's response for a link_id.
+
+    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
+    """
     client = moneykit_client()
     response = client.post(
         "/link-session/exchange-token",
@@ -165,6 +170,10 @@ async def exchange_token_for_link(
     status_code=status.HTTP_204_NO_CONTENT,
 )
 def disconnect_link(link_id: str) -> None:
+    """Disconnect a link.
+
+    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
+    """
     client = moneykit_client()
     response = client.delete("/links/{link_id}")
     response.raise_for_status()

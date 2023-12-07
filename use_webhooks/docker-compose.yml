@@ -11,6 +11,8 @@ services:
       FRONTEND_OAUTH_REDIRECT_URI: http://localhost:3000
     networks:
       - use_webhooks
+    depends_on:
+      - ngrok
     ports:
       - "8000:8000"
     stdin_open: true

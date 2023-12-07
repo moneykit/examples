@@ -7,12 +7,14 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-# moneykit = "^0.0.10"
+moneykit = "^0.1.4"
 fastapi = "^0.104.1"
 uvicorn = "^0.24.0.post1"
 pydantic-settings = "^2.1.0"
-moneykit = {version = "^0.1.0a1", allow-prereleases = true}
 httpx = "^0.25.2"
+cachetools = "^5.3.2"
+
+pyjwt = { version = "^2.8.0", extras = ["crypto"] }
 
 [tool.poetry.group.dev.dependencies]
 watchgod = "^0.8.2"

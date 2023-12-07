@@ -46,6 +46,7 @@ get '/health-check' do
 end
 
 post '/linking/session' do
+  # Create a link session. This example shows overriding default settings and products.
   link_session_api = MoneyKit::LinkSessionApi.new
   response = link_session_api.create_link_session(
     MoneyKit::CreateLinkSessionRequest.new(
@@ -80,6 +81,9 @@ post '/linking/session' do
 end
 
 post '/linking/exchange-token' do
+  # Exchange the Connect SDK's response for a link_id.
+  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
+
   request.body.rewind
   data = JSON.parse request.body.read
   exchangeable_token = data['exchangeable_token']
@@ -94,6 +98,8 @@ post '/linking/exchange-token' do
 end
 
 delete '/disconnect' do
+  # Disconnect a link.
+  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
   request.body.rewind
   data = JSON.parse request.body.read
   link_id = data['link_id']
