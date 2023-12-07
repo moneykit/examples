@@ -1,5 +1,4 @@
 import logging
-from sys import exception
 from uuid import uuid4
 
 import moneykit
@@ -37,7 +36,9 @@ def trigger_test_state_changed_webhook(link_id: str) -> dict:
 
     Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
     """
+    # You should see this value in the incoming webhook handler
     idempotency_key = str(uuid4())
+
     webhooks_api = moneykit.WebhooksApi(moneykit_client())
     webhooks_api.trigger_test_link_webhook_event(
         link_id,
