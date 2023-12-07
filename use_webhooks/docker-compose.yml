@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  backend_python:
+    build:
+      context: backend/python
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      FRONTEND_OAUTH_REDIRECT_URI: http://localhost:3000
+    networks:
+      - use_webhooks
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    volumes:
+      - "./backend/python/app:/app/app"
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    networks:
+      - use_webhooks
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    networks:
+      - use_webhooks
+    ports:
+      - 4040:4040
+
+networks:
+  use_webhooks:
+    name: use_webhooks

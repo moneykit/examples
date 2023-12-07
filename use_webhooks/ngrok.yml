@@ -1,0 +1,6 @@
+version: "2"
+web_addr: 0.0.0.0:4040
+tunnels:
+  backend_python:
+    addr: backend_python:8000
+    proto: http
