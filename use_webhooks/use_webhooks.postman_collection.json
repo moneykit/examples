@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "62131575-7580-4384-ba9a-648908264d66",
+		"name": "Use Webhooks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21632371"
+	},
+	"item": [
+		{
+			"name": "Health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/health-check",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New link session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/linking/session",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"linking",
+						"session"
+					]
+				},
+				"description": "Creates a link session with `webhook`"
+			},
+			"response": []
+		},
+		{
+			"name": "Exchange token for link",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"exchangeable_token\": \"blah\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/linking/exchange-token",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"linking",
+						"exchange-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request product refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/links/{{link_id}}/refresh/transactions",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"links",
+						"{{link_id}}",
+						"refresh",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trigger State Changed Webhook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/links/{{link_id}}/webhooks/test/state-changed",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"links",
+						"{{link_id}}",
+						"webhooks",
+						"test",
+						"state-changed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trigger Product Refresh Webhook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/links/{{link_id}}/webhooks/test/product-refresh",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"links",
+						"{{link_id}}",
+						"webhooks",
+						"test",
+						"product-refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Trigger Transactions Updates Webhook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/links/{{link_id}}/webhooks/test/transactions-updates",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"links",
+						"{{link_id}}",
+						"webhooks",
+						"test",
+						"transactions-updates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Disconnect Link",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"exchangeable_token\": \"blah\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/links/{{link_id}}",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"links",
+						"{{link_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

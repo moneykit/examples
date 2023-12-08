@@ -12,7 +12,7 @@ We expose 2 api endpoints for use by any of the frontend examples.
 
 This endpoint returns a new Link Session token that is required to launch MoneyKit Connect on the frontend.
 ```sh
-POST /session {}  # empty body
+POST /linking/session {}  # empty body
 ```
 
 Response:
@@ -25,7 +25,7 @@ Response:
 ### Exchange Token
 
 ```sh
-POST /exchange-token {
+POST /linking/exchange-token {
     "exchangeable_token": "..."
 }
 ```
@@ -43,5 +43,5 @@ This endpoint disconnects a link which will disable all future access to the acc
 refreshed.
 
 ```sh
-DEL /disconnect/{link_id}
+DEL /links/{link_id}
 ```

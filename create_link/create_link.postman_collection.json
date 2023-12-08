@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "20f205b1-7286-4b43-b017-6d79fa51c521",
+		"name": "Create Link",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21632371"
+	},
+	"item": [
+		{
+			"name": "Health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/health-check",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New link session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/linking/session",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"linking",
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exchange token for link",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"exchangeable_token\": \"blah\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/linking/exchange-token",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"linking",
+						"exchange-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Disconnect Link",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"exchangeable_token\": \"blah\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/links/{{link_id}}",
+					"host": [
+						"http://localhost:8000"
+					],
+					"path": [
+						"links",
+						"{{link_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

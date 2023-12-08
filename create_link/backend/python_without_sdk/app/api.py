@@ -8,7 +8,7 @@ from fastapi import APIRouter, Body, status
 
 from app.settings import get_settings
 
-router = APIRouter(prefix="/linking")
+router = APIRouter()
 logger = logging.getLogger("example.api")
 
 
@@ -78,7 +78,7 @@ class ExchangeTokenForLinkResponse(pydantic.BaseModel):
 
 
 @router.post(
-    "/session",
+    "/linking/session",
     status_code=status.HTTP_201_CREATED,
     response_model=NewLinkSessionResponse,
 )
@@ -135,7 +135,7 @@ async def new_link_session() -> NewLinkSessionResponse:
 
 
 @router.post(
-    "/exchange-token",
+    "/linking/exchange-token",
     status_code=status.HTTP_202_ACCEPTED,
     response_model=ExchangeTokenForLinkResponse,
 )
@@ -166,7 +166,7 @@ async def exchange_token_for_link(
 
 
 @router.delete(
-    "/disconnect/{link_id}",
+    "/links/{link_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
 def disconnect_link(link_id: str) -> None:

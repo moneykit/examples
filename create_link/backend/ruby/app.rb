@@ -97,12 +97,12 @@ post '/linking/exchange-token' do
   { moneykit_link_id: response.link_id, institution_name: response.link.institution_name }.to_json
 end
 
-delete '/disconnect' do
+delete '/links/:link_id' do
   # Disconnect a link.
   # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
   request.body.rewind
   data = JSON.parse request.body.read
-  link_id = data['link_id']
+  link_id = params['link_id']
 
   links_api = MoneyKit::LinksApi.new
   links_api.disconnect(link_id)

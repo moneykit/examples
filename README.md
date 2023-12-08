@@ -25,6 +25,8 @@ This example shows the bare minimum to create a link.
    - Visit `http://localhost:3000` in your browser, and create a new link.
 3. Exchange a temporary token to a long-lived link id on the backend.
 
+[Postman Collection](create_link/create_link.postman_collection.json)
+
 ### Get some account data!
 
 Once you have created a Link you can fetch product data.
@@ -82,4 +84,15 @@ This example shows the most efficient way of caching transactions in a database.
 
 This example shows how to configure webhooks when creating a Link and how to verify that a webhook was sent from MoneyKit.
 
-TODO: Publish example
+ **[Begin using webhooks](use_webhooks/README.md)**
+
+Create a Link using this example (not `create_link/backend`). This example configures a webhook when creating the link.
+
+1. Create a link session with `webhook` set via a backend API.
+2. Launch MoneyKit Connect frontend to allow a user to connect a bank account.
+   - Visit `http://localhost:3000` in your browser, and create a new link.
+3. Exchange a temporary token to a long-lived link id on the backend.
+4. Observe incoming `link.state_changed` webhook (using `ngrok` to expose the local backend service)
+5. Trigger sandbox test webhooks or refresh products via API to observe `link.product_refresh`
+
+[Postman Collection](use_webhooks/use_webhooks.postman_collection.json)
