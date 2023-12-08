@@ -4,3 +4,6 @@ tunnels:
   backend_python:
     addr: backend_python:8000
     proto: http
+  backend_ruby:
+    addr: backend_ruby:8000
+    proto: http

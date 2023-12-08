@@ -2,7 +2,7 @@ import functools
 import hashlib
 import hmac
 import logging
-from datetime import timedelta
+from datetime import datetime, timedelta
 from typing import ClassVar
 
 import jwt
@@ -56,6 +56,10 @@ class MoneyKitWebHookVerifier:
     # hours. This reduces the likelihood of using an expired key to validate incoming webhooks.
     # We rotate webhook sig keys regularly
     _key_cache: ClassVar[TTLCache[str, dict]] = TTLCache(maxsize=20, ttl=timedelta(hours=12).total_seconds())
+    # To avoid malicious requests triggering cache invalidations there needs to be some kind of grace time or other
+    # logic for determining the validity of the invalidation. This example only allows cache invalidations every 5
+    # minutes.
+    _cache_refreshed_at: datetime = datetime.min
 
     def __init__(self, client: moneykit.ApiClient) -> None:
         self._client = client
@@ -110,6 +114,7 @@ class MoneyKitWebHookVerifier:
                 key,
                 algorithms=["ES256"],
                 verify=True,
+                # issuer="https://api.moneykit.com",
                 leeway=timedelta(minutes=5),
                 options={"verify_iat": True},
             )
@@ -122,11 +127,13 @@ class MoneyKitWebHookVerifier:
 
     def _get_key_for_id(self, kid: str) -> jwt.algorithms.ECAlgorithm:
         if kid not in self._key_cache:
-            logger.info(f"Refreshing JWKS. Missing {kid}.")
-            access_token_api = moneykit.AccessTokenApi(self._client)
-            jwks = access_token_api.get_well_known_jwks()
-            for jwk in jwks.keys:
-                self._key_cache[jwk["kid"]] = jwk
+            if datetime.now() - timedelta(minutes=5) > self._cache_refreshed_at:
+                logger.info(f"Invalidating JWK cache. {kid} not found from previous cache.")
+                access_token_api = moneykit.AccessTokenApi(self._client)
+                jwks = access_token_api.get_well_known_jwks()
+                for jwk in jwks.keys:
+                    self._key_cache[jwk["kid"]] = jwk
+                self._cache_refreshed_at = datetime.now()
         else:
             logger.info(f"{kid} in cache")
 

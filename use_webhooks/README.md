@@ -14,6 +14,7 @@ webhooks (sandbox links only) and handling the incoming webhooks from MoneyKit.
 
 Choose the language for your backend:
 - python: Uses MoneyKit's Python SDK
+- ruby: Uses MoneyKit's Ruby SDK
 
 The backend will run on `http://localhost:8000`.
 
@@ -47,6 +48,7 @@ This will print the location where you can copy the `authtoken` value.
 Start any backend, here we'll use python but it doesn't matter.
 ```sh
 make run backend=python
+make run backend=ruby
 ```
 
 Navigate to http://localhost:3000 and to launch the Connect SDK and connect to sandbox.
