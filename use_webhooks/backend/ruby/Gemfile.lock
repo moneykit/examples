@@ -36,7 +36,7 @@ GEM
     json (2.6.3)
     jwt (2.7.1)
     minitest (5.20.0)
-    moneykit (0.1.3)
+    moneykit (0.1.4)
       faraday (>= 1.0.1, < 3.0)
       faraday-multipart
     multipart-post (2.3.0)
