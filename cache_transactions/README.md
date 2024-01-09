@@ -32,7 +32,7 @@ We have left the `accounts` model out of this example for simplicity. In reality
 - `transactions`
     - `account_id`: Foreign key to `accounts.id`
 
-<a href="https://asciinema.org/a/YkYUgrzPoEljmszF3B5HL4Bjm?autoplay=1"><img src="https://asciinema.org/a/YkYUgrzPoEljmszF3B5HL4Bjm.png" width="836"/></a>
+<img src="asciinema_recording.gif"/>
 
 
 ## Getting started

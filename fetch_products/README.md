@@ -3,7 +3,7 @@
 Here you will find a collection of CLI commands that take a `link_id`, fetch a product and print the response to your
 console.
 
-<a href="https://asciinema.org/a/qrWJqZK0nsIOfMEuGGaqfNqim?autoplay=1"><img src="https://asciinema.org/a/qrWJqZK0nsIOfMEuGGaqfNqim.png" width="836"/></a>
+<img src="asciinema_recording.gif" />
 
 ## Getting started
 
