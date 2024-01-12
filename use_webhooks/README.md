@@ -137,8 +137,8 @@ There are several strategies to mitigate this:
 
 ### Debugging
 
-Included in each webhook request is a `MoneyKit-Delivery-Token` HTTP header. You should log this value out in your
-handler to help debug webhook issues.
+Included in each webhook request is a `MoneyKit-Delivery-Token` and `MoneyKit-Delivery-Attempt` HTTP header.
+You should log this value out in your handler to help debug webhook issues.
 
 You can provide MoneyKit support with a `MoneyKit-Delivery-Token` to aid our debugging process.
 

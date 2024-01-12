@@ -31,17 +31,20 @@ async def handle_moneykit_webhook(
     request: Request,
     moneykit_signature: Annotated[str | None, Header(...)],
     moneykit_delivery_token: Annotated[str | None, Header(...)],
+    moneykit_delivery_attempt: Annotated[str | None, Header(...)],
 ) -> dict:
     """Verifies and handles incoming moneykit webhooks.
 
     This method should do the least amount of work possible and respond in a timely manner.
     Here we pseudocode triggering Celery background jobs to do the work once the webhook has been verified and decoded.
 
-    `moneykit_delivery_token` can be used to help debug requests and is valuable to include in your backend logs.
+    `moneykit_delivery_token` and `moneykit_delivery_attempt` can be used to help debug requests and are valuable to
+    include in your backend logs.
     """
     # moneykit_signature = request.headers.get("MoneyKit-Signature")
     # moneykit_delivery_token = request.headers.get("MoneyKit-Delivery-Token")
-    logger.info(f"Handling webhook {moneykit_delivery_token=} {moneykit_signature=}")
+    # moneykit_delivery_attempt = request.headers.get("MoneyKit-Delivery-Attempt")
+    logger.info(f"Handling webhook {moneykit_delivery_token=}({moneykit_delivery_attempt}) {moneykit_signature=}")
 
     body_bytes = await request.body()
     client = moneykit_client()
