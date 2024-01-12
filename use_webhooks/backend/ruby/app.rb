@@ -172,11 +172,13 @@ post '/webhook-handler' do
   # This method should do the least amount of work possible and respond in a timely manner.
   # Here we pseudocode triggering sidekiq background jobs to do the work once the webhook has been verified and decoded.
   #
-  # `moneykit_delivery_token` can be used to help debug requests and is valuable to include in your backend logs.
+  # `moneykit_delivery_token` and `moneykit_delivery_attempt` can be used to help debug requests and are valuable to
+  # include in your backend logs.
 
   moneykit_signature = request.env['HTTP_MONEYKIT_SIGNATURE']
   moneykit_delivery_token = request.env['HTTP_MONEYKIT_DELIVERY_TOKEN']
-  puts "Handling webhook moneykit_delivery_token=#{moneykit_delivery_token} moneykit_signature#{moneykit_signature}"
+  moneykit_delivery_attempt = request.env['HTTP_MONEYKIT_DELIVERY_ATTEMPT']
+  puts "Handling webhook moneykit_delivery_token=#{moneykit_delivery_token}(#{moneykit_delivery_attempt}) moneykit_signature#{moneykit_signature}"
 
   body_data = request.body.read
 
