@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = "^0.104.1"
+fastapi = "^0.109.1"
 uvicorn = "^0.24.0.post1"
 pydantic-settings = "^2.1.0"
 httpx = "^0.25.2"
