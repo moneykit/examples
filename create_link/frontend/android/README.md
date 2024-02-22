@@ -1,39 +1,41 @@
-# MoneyKit for Android
-
-Reference for integrating with the MoneyKit Connect Android SDK
+# MoneyKit Connect for Android
 
 ## Overview
 
-The MoneyKit Connect Android SDK is a quick and secure way to link bank accounts to MoneyKit from 
-within your Android app. MoneyKit Connect handles connecting a financial institution to your app 
-(credential validation, multi-factor authentication, error handling, etc.) without passing sensitive 
-information to your server.
+MoneyKit Connect for Android is a quick and secure way to link bank accounts from within your
+Android app. The SDK handles connecting to a financial institution in your app (credential
+validation, multi-factor authentication, error handling, etc.) without passing sensitive information
+to your server.
+
+This project provides a basic example of how to integrate the MoneyKit Connect Android SDK into an 
+Android app.
 
 ## Installation
 
 Add the following line to your app's build.gradle file:
 
+```kotlin
+implementation("com.moneykit:connect:0.0.7")
 ```
-implementation("com.moneykit:connect:0.0.4")
-```
 
----
+## Documentation
 
-## Opening MoneyKit Connect
+See https://docs.moneykit.com/connect/android for documentation.
 
-Before you can open Connect, you need to first create a `link_session_token`. A `link_session_token` 
-can be configured for different flows and is used to control much of the behavior.
+## Get Started
 
-#### Create a Configuration
+Follow the steps below to get started with a basic SDK integration.
 
-Starting the MoneyKit Connect flow begins with creating a `link_session_token`. Once the 
-`link_session_token` is passed to your app, create an instance of `MkConfiguration`, then create an 
-instance of `MkLinkHandler` passing in the previously created `MkConfiguration`, and call 
-`presentInstitutionSelectionFlow(context)` on the handler. Note that each time you open MoneyKit 
-Connect, you will need to get a new `link_session_token` from your server and create a new 
+### Create a Configuration
+
+Starting the MoneyKit Connect flow begins with creating a `link_session_token`. Once the
+`link_session_token` is passed to your app, create an instance of `MkConfiguration`, then create an
+instance of `MkLinkHandler` passing in the previously created `MkConfiguration`, and call
+`presentLinkFlow(context)` on the handler. Note that each time you open MoneyKit
+Connect, you will need to get a new `link_session_token` from your server and create a new
 `MkConfiguration` with it.
 
-``` kotlin
+```kotlin
 val linkSessionToken: String = "your_link_session_token"
 
 val configuration = MkConfiguration(
@@ -55,23 +57,21 @@ val configuration = MkConfiguration(
 )
 ```
 
-#### Create a Handler
+### Create a Handler
 
-A Handler is a one-time use object used to open a MoneyKit Connect session. The Handler must be 
-retained for the duration of the Connect flow. It will also be needed to respond to OAuth 
+A Handler is a one-time use object used to open a MoneyKit Connect session. The Handler must be
+retained for the duration of the Connect flow. It will also be needed to respond to OAuth
 Universal Link redirects.
 
-``` Swift
-
-let linkHandler = MkLinkHandler(configuration: configuration)
-
+```kotlin
+val linkHandler = MkLinkHandler(configuration)
 ```
 
-#### Open MoneyKit Connect
+### Open MoneyKit Connect
 
-Finally, open Link by calling `presentInstitutionSelectionFlow(context)` on the Handler object. 
+Finally, open Link by calling `presentLinkFlow(context)` on the Handler object.
 This will usually be done in a button’s target action. Context should be your current activity.
 
-``` Swift
-linkHandler.presentInstitutionSelectionFlow(this)
+```kotlin
+linkHandler.presentLinkFlow(this)
 ```
