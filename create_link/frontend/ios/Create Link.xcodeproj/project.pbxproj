@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DA295C22A49892B00E0969C /* MoneyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0DA295C12A49892B00E0969C /* MoneyKit */; };
+		0D27D4E32B8CF031006C91DB /* MoneyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0D27D4E22B8CF031006C91DB /* MoneyKit */; };
 		0DABD8C929FAB77100E0C7C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DABD8C829FAB77100E0C7C5 /* Assets.xcassets */; };
 		0DABD8CC29FAB77100E0C7C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DABD8CA29FAB77100E0C7C5 /* LaunchScreen.storyboard */; };
 		0DABD8D329FABA7400E0C7C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD8BF29FAB77100E0C7C5 /* AppDelegate.swift */; };
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DA295C22A49892B00E0969C /* MoneyKit in Frameworks */,
+				0D27D4E32B8CF031006C91DB /* MoneyKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +179,7 @@
 			);
 			name = "Create Link";
 			packageProductDependencies = (
-				0DA295C12A49892B00E0969C /* MoneyKit */,
+				0D27D4E22B8CF031006C91DB /* MoneyKit */,
 			);
 			productName = "Create Link";
 			productReference = 0DABD8BD29FAB77100E0C7C5 /* Create Link.app */;
@@ -210,7 +210,7 @@
 			);
 			mainGroup = 0DABD87829FAB3C700E0C7C5;
 			packageReferences = (
-				0DA295C02A49892B00E0969C /* XCRemoteSwiftPackageReference "moneykit-ios" */,
+				0D27D4E12B8CF031006C91DB /* XCRemoteSwiftPackageReference "moneykit-ios" */,
 			);
 			productRefGroup = 0DABD88229FAB3C700E0C7C5 /* Products */;
 			projectDirPath = "";
@@ -401,7 +401,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,7 +428,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,20 +466,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0DA295C02A49892B00E0969C /* XCRemoteSwiftPackageReference "moneykit-ios" */ = {
+		0D27D4E12B8CF031006C91DB /* XCRemoteSwiftPackageReference "moneykit-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/moneykit/moneykit-ios.git";
+			repositoryURL = "https://github.com/moneykit/moneykit-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.10;
+				minimumVersion = 1.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0DA295C12A49892B00E0969C /* MoneyKit */ = {
+		0D27D4E22B8CF031006C91DB /* MoneyKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0DA295C02A49892B00E0969C /* XCRemoteSwiftPackageReference "moneykit-ios" */;
+			package = 0D27D4E12B8CF031006C91DB /* XCRemoteSwiftPackageReference "moneykit-ios" */;
 			productName = MoneyKit;
 		};
 /* End XCSwiftPackageProductDependency section */

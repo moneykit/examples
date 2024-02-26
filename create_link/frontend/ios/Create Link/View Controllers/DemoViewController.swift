@@ -107,7 +107,7 @@ final class DemoViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case let .success(linkSession):
-                    self.presentMoneyLink(with: linkSession)
+                    self.presentMoneyKit(with: linkSession)
                 case .failure:
                     self.presentLinkSessionErrorAlert()
                 }
@@ -172,7 +172,7 @@ final class DemoViewController: UIViewController {
         present(alertController, animated: true)
     }
 
-    private func presentMoneyLink(with linkSessionToken: String) {
+    private func presentMoneyKit(with linkSessionToken: String) {
         do {
             let configuration = try MKConfiguration(
                 sessionToken: linkSessionToken,
@@ -182,9 +182,7 @@ final class DemoViewController: UIViewController {
             )
 
             linkHandler = MKLinkHandler(configuration: configuration)
-
-            let presentationMethod = MKPresentationMethod.modal(presentingViewController: self)
-            linkHandler?.presentInstitutionSelectionFlow(using: presentationMethod)
+            linkHandler?.presentLinkFlow(on: self)
         } catch let error {
             print("Configuration error - \(error.localizedDescription)")
         }
