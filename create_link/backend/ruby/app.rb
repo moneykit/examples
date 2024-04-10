@@ -55,15 +55,6 @@ post '/linking/session' do
         link_tags: ['examples:create_link'],
         redirect_uri: ENV['FRONTEND_OAUTH_REDIRECT_URI'] || 'http://localhost:3000',
         settings: {
-          link_permissions: {
-            requested: [
-              { scope: 'accounts', reason: 'play with MoneyKit examples.', required: true },
-              { scope: 'account_numbers', reason: 'play with MoneyKit examples.', required: true },
-              { scope: 'identity', reason: 'play with MoneyKit examples.', required: true },
-              { scope: 'transactions', reason: 'play with MoneyKit examples.', required: true }
-
-            ]
-          },
           products: {
             account_numbers: {
               required: false,

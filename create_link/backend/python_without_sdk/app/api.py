@@ -94,30 +94,6 @@ async def new_link_session() -> NewLinkSessionResponse:
             "link_tags": ["examples:create_link"],
             "redirect_uri": settings.frontend_oauth_redirect_uri,
             "settings": {
-                "link_permissions": {
-                    "requested": [
-                        {
-                            "scope": "accounts",
-                            "reason": "play with MoneyKit examples",
-                            "required": True,
-                        },
-                        {
-                            "scope": "account_numbers",
-                            "reason": "play with MoneyKit examples",
-                            "required": True,
-                        },
-                        {
-                            "scope": "identity",
-                            "reason": "play with MoneyKit examples",
-                            "required": True,
-                        },
-                        {
-                            "scope": "transactions",
-                            "reason": "play with MoneyKit examples",
-                            "required": True,
-                        },
-                    ]
-                },
                 "products": {
                     "account_numbers": {"required": False, "prefetch": True},
                     "identity": {"required": False, "prefetch": True},
