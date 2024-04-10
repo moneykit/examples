@@ -73,30 +73,6 @@ def new_link_session() -> NewLinkSessionResponse:
             link_tags=["examples:create_link"],
             redirect_uri=settings.frontend_oauth_redirect_uri,
             settings=moneykit.models.LinkSessionSettingOverrides(
-                link_permissions=moneykit.models.LinkPermissions(
-                    requested=[
-                        moneykit.models.RequestedLinkPermission(
-                            scope=moneykit.models.LinkPermissionScope.ACCOUNTS,
-                            reason="play with MoneyKit examples.",
-                            required=True,
-                        ),
-                        moneykit.models.RequestedLinkPermission(
-                            scope=moneykit.models.LinkPermissionScope.ACCOUNT_NUMBERS,
-                            reason="play with MoneyKit examples.",
-                            required=True,
-                        ),
-                        moneykit.models.RequestedLinkPermission(
-                            scope=moneykit.models.LinkPermissionScope.IDENTITY,
-                            reason="play with MoneyKit examples.",
-                            required=True,
-                        ),
-                        moneykit.models.RequestedLinkPermission(
-                            scope=moneykit.models.LinkPermissionScope.TRANSACTIONS,
-                            reason="play with MoneyKit examples.",
-                            required=True,
-                        ),
-                    ]
-                ),
                 products=moneykit.models.ProductsSettings(
                     account_numbers=moneykit.models.AccountNumbersProductSettings(
                         required=False,
