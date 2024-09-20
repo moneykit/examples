@@ -24,11 +24,11 @@ GEM
       ruby2_keywords (~> 0.0.1)
     net-http (0.4.1)
       uri
-    nio4r (2.7.0)
+    nio4r (2.7.3)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
-    puma (6.4.2)
+    puma (6.4.3)
       nio4r (~> 2.0)
     rack (2.2.9)
     rack-protection (3.0.6)
