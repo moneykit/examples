@@ -99,10 +99,10 @@ bundle install
 ./cli get-transactions-diff <link_id> [--cursor <cursor>]
 ```
 
-#### Disconnect
+#### Delete
 
 ```sh
-./cli disconnect <link_id>
+./cli delete <link_id>
 ```
 
 https://asciinema.org/

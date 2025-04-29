@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "bundler/setup"
 require 'sinatra'
 require 'sinatra/cors'
 require 'moneykit'
@@ -26,7 +27,7 @@ def configure_moneykit_client
 
   access_token_api = MoneyKit::AccessTokenApi.new
   response =
-    access_token_api.generate_access_token(
+    access_token_api.create_access_token(
       {
         grant_type: 'client_credentials',
         client_id: ENV['MONEYKIT_CLIENT_ID'],
@@ -56,11 +57,9 @@ post '/linking/session' do
         redirect_uri: ENV['FRONTEND_OAUTH_REDIRECT_URI'] || 'http://localhost:3000',
         settings: {
           products: {
-            account_numbers: {
-              required: false,
-              prefetch: true
+            transactions: {
+              required: true,
             }
-
           }
         }
       }
@@ -72,8 +71,7 @@ post '/linking/session' do
 end
 
 post '/linking/exchange-token' do
-  # Exchange the Connect SDK's response for a link_id.
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
+  # Exchange the Connect SDK's response for a link_id
 
   request.body.rewind
   data = JSON.parse request.body.read
@@ -89,8 +87,7 @@ post '/linking/exchange-token' do
 end
 
 delete '/links/:link_id' do
-  # Disconnect a link.
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
+  # Delete a link.
   request.body.rewind
   data = JSON.parse request.body.read
   link_id = params['link_id']

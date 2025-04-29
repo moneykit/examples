@@ -7,7 +7,7 @@ the response back to the backend.
 
 The backend is responsible for generating a Link Session which is used to initialize the frontend MoneyKit Connect SDK.
 It is also responsible for exchanging the Connect SDK response for a `link_id`. With this `link_id` the backend is able
-to fetch data such as accounts and disconnect the link.
+to fetch data such as accounts and delete the link.
 
 ## Getting started
 
@@ -93,4 +93,3 @@ make run frontend=react_native
 ```
 
 TODO: Screenshots and instructions
-

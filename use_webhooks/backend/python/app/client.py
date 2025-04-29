@@ -36,7 +36,7 @@ def moneykit_client() -> moneykit.ApiClient:
 
     logger.debug(f"Authenticating to {settings.moneykit_url} as {settings.moneykit_client_id}")
     access_token_api = moneykit.AccessTokenApi(api_client)
-    response = access_token_api.generate_access_token(
+    response = access_token_api.create_access_token(
         client_id=settings.moneykit_client_id,
         client_secret=settings.moneykit_client_secret.get_secret_value(),
         grant_type="client_credentials",

@@ -1,4 +1,4 @@
-FROM ruby:3.2.2
+FROM ruby:3.4.3
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ RUN bundle install
 
 COPY . /app
 
-ENV PORT 8000
+ENV PORT=8000
 EXPOSE 8000
 
 CMD ["bundle", "exec", "ruby", "app.rb"]

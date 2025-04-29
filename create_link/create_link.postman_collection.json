@@ -78,7 +78,7 @@
 			"response": []
 		},
 		{
-			"name": "Disconnect Link",
+			"name": "Delete Link",
 			"request": {
 				"method": "DELETE",
 				"header": [],

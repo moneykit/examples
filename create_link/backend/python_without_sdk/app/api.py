@@ -118,10 +118,7 @@ async def new_link_session() -> NewLinkSessionResponse:
 async def exchange_token_for_link(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
 ) -> ExchangeTokenForLinkResponse:
-    """Exchange the Connect SDK's response for a link_id.
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+    """Exchange the Connect SDK's response for a link_id."""
     client = moneykit_client()
     response = client.post(
         "/link-session/exchange-token",
@@ -145,12 +142,10 @@ async def exchange_token_for_link(
     "/links/{link_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
-def disconnect_link(link_id: str) -> None:
-    """Disconnect a link.
+def delete_link(link_id: str) -> None:
+    """Delete a link."""
 
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
     client = moneykit_client()
     response = client.delete("/links/{link_id}")
     response.raise_for_status()
-    logger.info(f"Disconnected link id: {link_id}")
+    logger.info(f"Deleted link id: {link_id}")
