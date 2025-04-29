@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'moneykit', '~> 0.1.0'
+gem 'moneykit', '~> 0.1.15'
 
 gem 'puma', '~> 6.4'
 gem 'sinatra', '~> 4.1'
@@ -14,3 +14,5 @@ gem 'debug', '~> 1.7', group: :development
 gem 'dotenv', '~> 2.8'
 
 gem "sinatra-cors", "~> 1.2"
+
+gem "rackup", "~> 2.2"

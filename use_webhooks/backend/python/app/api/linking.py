@@ -49,7 +49,7 @@ def new_link_session() -> NewLinkSessionResponse:
 
     response = link_session_api.create_link_session(
         moneykit.models.CreateLinkSessionRequest(
-            customer_user=moneykit.models.LinkSessionCustomerUser(id="examples-use_webhooks-test-user"),
+            customer_user=moneykit.models.CustomerUser(id="examples-use_webhooks-test-user"),
             link_tags=["examples:use_webhooks"],
             redirect_uri=settings.frontend_oauth_redirect_uri,
             webhook=webhook_url,
@@ -74,10 +74,7 @@ def new_link_session() -> NewLinkSessionResponse:
 def exchange_token_for_link(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
 ) -> ExchangeTokenForLinkResponse:
-    """Exchange the Connect SDK's response for a link_id.
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+    """Exchange the Connect SDK's response for a link_id."""
     link_session_api = moneykit.LinkSessionApi(moneykit_client())
     response = link_session_api.exchange_token(
         moneykit.models.ExchangeTokenRequest(exchangeable_token=body.exchangeable_token),

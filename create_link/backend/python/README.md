@@ -36,9 +36,9 @@ Response:
 }
 ```
 
-### Disconnect Link
+### Delete Link
 
-This endpoint disconnects a link which will disable all future access to the accounts and stop the data from being
+This endpoint deletes a link which will disable all future access to the accounts and stop the data from being
 refreshed.
 
 ```sh

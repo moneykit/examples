@@ -53,7 +53,6 @@ end
 
 post '/linking/exchange-token' do
   # Exchange the Connect SDK's response for a link_id.
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
 
   request.body.rewind
   data = JSON.parse request.body.read
@@ -69,8 +68,7 @@ post '/linking/exchange-token' do
 end
 
 delete '/links/:link_id' do
-  # Disconnect a link.
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
+  # Delete a link.
   request.body.rewind
   data = JSON.parse request.body.read
   link_id = params['link_id']
@@ -84,7 +82,6 @@ end
 
 post '/links/:link_id/refresh/:product' do
   # Request a product refresh for a link.
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
   request.body.rewind
   data = JSON.parse request.body.read
   link_id = params['link_id']
@@ -100,7 +97,6 @@ end
 post '/links/:link_id/webhooks/test/state-changed' do
   # Trigger a test `link.state_changed` webhook event to be sent by moneykit.
   # NOTE: This only works for sandbox links
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
   request.body.rewind
   data = JSON.parse request.body.read
   link_id = params['link_id']
@@ -123,7 +119,6 @@ end
 post '/links/:link_id/webhooks/test/product-refresh' do
   # Trigger a test `link.product_refresh` webhook event for `accounts` product to be sent by moneykit.
   # NOTE: This only works for sandbox links
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
   request.body.rewind
   data = JSON.parse request.body.read
   link_id = params['link_id']
@@ -146,7 +141,6 @@ end
 post '/links/:link_id/webhooks/test/transactions-updates' do
   # Trigger a test `transactions.updates_available` webhook event for product to be sent by moneykit.
   # NOTE: This only works for sandbox links
-  # Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
   request.body.rewind
   data = JSON.parse request.body.read
   link_id = params['link_id']

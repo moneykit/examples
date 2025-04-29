@@ -16,10 +16,7 @@ logger = logging.getLogger("example.api.links")
     status_code=status.HTTP_200_OK,
 )
 def refresh_link_product(link_id: str, product: moneykit.models.Product) -> dict:
-    """Request a product refresh for a link
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+    """Request a product refresh for a link"""
     products_api = moneykit.ProductsApi(moneykit_client())
     products_api.refresh_products(link_id, moneykit.models.RefreshProductsRequest(products=[product]))
     logger.info(f"Refresh {product}")
@@ -32,10 +29,7 @@ def refresh_link_product(link_id: str, product: moneykit.models.Product) -> dict
 )
 def trigger_test_state_changed_webhook(link_id: str) -> dict:
     """Trigger a test `link.state_changed` webhook event to be sent by moneykit.
-    NOTE: This only works for sandbox links
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+    NOTE: This only works for sandbox links"""
     # You should see this value in the incoming webhook handler
     idempotency_key = str(uuid4())
 
@@ -57,10 +51,7 @@ def trigger_test_state_changed_webhook(link_id: str) -> dict:
 )
 def trigger_test_product_refresh_webhook(link_id: str) -> dict:
     """Trigger a test `link.product_refresh` webhook event for `accounts` product to be sent by moneykit.
-    NOTE: This only works for sandbox links
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+    NOTE: This only works for sandbox links"""
     idempotency_key = str(uuid4())
     webhooks_api = moneykit.WebhooksApi(moneykit_client())
     thing = moneykit.models.WebhookTestLinkRequest(
@@ -81,10 +72,7 @@ def trigger_test_product_refresh_webhook(link_id: str) -> dict:
 )
 def trigger_test_transactions_updates_webhook(link_id: str) -> dict:
     """Trigger a test `transactions.updates_available` webhook event for product to be sent by moneykit.
-    NOTE: This only works for sandbox links
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+    NOTE: This only works for sandbox links"""
     idempotency_key = str(uuid4())
     webhooks_api = moneykit.WebhooksApi(moneykit_client())
     webhooks_api.trigger_test_link_webhook_event(
@@ -102,11 +90,8 @@ def trigger_test_transactions_updates_webhook(link_id: str) -> dict:
     "/{link_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
-def disconnect_link(link_id: str) -> None:
-    """Disconnect a link
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+def delete_link(link_id: str) -> None:
+    """Delete a link"""
     links_api = moneykit.LinksApi(moneykit_client())
-    links_api.disconnect(link_id)
-    logger.info(f"Disconnected link id: {link_id}")
+    links_api.delete_link(link_id)
+    logger.info(f"Deleted link id: {link_id}")

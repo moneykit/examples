@@ -20,7 +20,7 @@ def configure_moneykit_client
 
   access_token_api = MoneyKit::AccessTokenApi.new
   response =
-    access_token_api.generate_access_token(
+    access_token_api.create_access_token(
       {
         grant_type: 'client_credentials',
         client_id: ENV['MONEYKIT_CLIENT_ID'],

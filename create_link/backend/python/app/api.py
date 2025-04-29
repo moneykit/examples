@@ -33,7 +33,7 @@ def moneykit_client() -> moneykit.ApiClient:
 
     logger.debug(f"Authenticating to {settings.moneykit_url} as {settings.moneykit_client_id}")
     access_token_api = moneykit.AccessTokenApi(api_client)
-    response = access_token_api.generate_access_token(
+    response = access_token_api.create_access_token(
         client_id=settings.moneykit_client_id,
         client_secret=settings.moneykit_client_secret.get_secret_value(),
         grant_type="client_credentials",
@@ -69,16 +69,16 @@ def new_link_session() -> NewLinkSessionResponse:
 
     response = link_session_api.create_link_session(
         moneykit.models.CreateLinkSessionRequest(
-            customer_user=moneykit.models.LinkSessionCustomerUser(id="examples-create_link-test-user"),
+            customer_user=moneykit.models.CustomerUser(id="examples-create_link-test-user"),
             link_tags=["examples:create_link"],
             redirect_uri=settings.frontend_oauth_redirect_uri,
             settings=moneykit.models.LinkSessionSettingOverrides(
                 products=moneykit.models.ProductsSettings(
-                    account_numbers=moneykit.models.AccountNumbersProductSettings(
+                    account_numbers=moneykit.models.ProductSettings(
                         required=False,
                         prefetch=True,
                     ),
-                    identity=moneykit.models.IdentityProductSettings(
+                    identity=moneykit.models.ProductSettings(
                         required=False,
                         prefetch=True,
                     ),
@@ -103,10 +103,7 @@ def new_link_session() -> NewLinkSessionResponse:
 def exchange_token_for_link(
     body: Annotated[ExchangeTokenForLinkRequest, Body()],
 ) -> ExchangeTokenForLinkResponse:
-    """Exchange the Connect SDK's response for a link_id.
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+    """Exchange the Connect SDK's response for a link_id."""
     link_session_api = moneykit.LinkSessionApi(moneykit_client())
     response = link_session_api.exchange_token(
         moneykit.models.ExchangeTokenRequest(exchangeable_token=body.exchangeable_token),
@@ -122,11 +119,8 @@ def exchange_token_for_link(
     "/links/{link_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
-def disconnect_link(link_id: str) -> None:
-    """Disconnect a link.
-
-    Note: In real-world applications with a database you should not be exposing moneykit `link_id`s to the clients!
-    """
+def delete_link(link_id: str) -> None:
+    """Delete a link."""
     links_api = moneykit.LinksApi(moneykit_client())
-    links_api.disconnect(link_id)
-    logger.info(f"Disconnected link id: {link_id}")
+    links_api.delete_link(link_id)
+    logger.info(f"Deleted link id: {link_id}")
