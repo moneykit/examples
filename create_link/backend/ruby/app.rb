@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "bundler/setup"
+require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/cors'
 require 'moneykit'
@@ -11,9 +11,9 @@ set :bind, '0.0.0.0'
 set :default_content_type, 'application/json'
 
 # CORS
-set :allow_origin, "*"
-set :allow_methods, "GET,HEAD,POST"
-set :allow_headers, "content-type"
+set :allow_origin, '*'
+set :allow_methods, 'GET,HEAD,POST'
+set :allow_headers, 'content-type'
 
 def configure_moneykit_client
   # Generate a bearer access token that is valid for 60 minutes.
@@ -25,22 +25,20 @@ def configure_moneykit_client
     config.host = ENV['MONEYKIT_URL'] || 'https://api.moneykit.com'
   end
 
-  access_token_api = MoneyKit::AccessTokenApi.new
-  response =
-    access_token_api.create_access_token(
-      {
-        grant_type: 'client_credentials',
-        client_id: ENV['MONEYKIT_CLIENT_ID'],
-        client_secret: ENV['MONEYKIT_CLIENT_SECRET']
-      }
-    )
+  response = MoneyKit::AccessTokenApi.new.create_access_token(
+    {
+      grant_type: 'client_credentials',
+      client_id: ENV['MONEYKIT_CLIENT_ID'],
+      client_secret: ENV['MONEYKIT_CLIENT_SECRET']
+    }
+  )
 
   MoneyKit.configure do |config|
     config.access_token = response.access_token
   end
 end
 
-configure_moneykit_client()
+configure_moneykit_client
 
 get '/health-check' do
   { project: 'create_link/backend/ruby' }.to_json
@@ -58,7 +56,7 @@ post '/linking/session' do
         settings: {
           products: {
             transactions: {
-              required: true,
+              required: true
             }
           }
         }
@@ -79,7 +77,7 @@ post '/linking/exchange-token' do
 
   link_session_api = MoneyKit::LinkSessionApi.new
   response = link_session_api.exchange_token(
-    MoneyKit::ExchangeTokenRequest.new({ exchangeable_token: exchangeable_token })
+    MoneyKit::ExchangeTokenRequest.new({ exchangeable_token: })
   )
 
   status 202
@@ -89,12 +87,11 @@ end
 delete '/links/:link_id' do
   # Delete a link.
   request.body.rewind
-  data = JSON.parse request.body.read
   link_id = params['link_id']
 
   links_api = MoneyKit::LinksApi.new
   links_api.disconnect(link_id)
 
   status 200
-  { }.to_json
+  {}.to_json
 end
