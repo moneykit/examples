@@ -57,7 +57,6 @@ def new_link_session() -> NewLinkSessionResponse:
                 transactions=moneykit.models.TransactionsProductSettings(
                     required=False,
                     prefetch=True,
-                    extend_history=False,
                 ),
             ),
         ),

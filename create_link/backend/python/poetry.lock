@@ -107,21 +107,23 @@ files = [
 
 [[package]]
 name = "moneykit"
-version = "0.2.0"
+version = "0.2.1"
 description = "MoneyKit API"
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "^3.8"
 groups = ["main"]
-files = [
-    {file = "moneykit-0.2.0-py3-none-any.whl", hash = "sha256:78fe792439d63b6c7403a6e9b2d3a55762a538cc205e3c3c0aab05985c6ba0bb"},
-    {file = "moneykit-0.2.0.tar.gz", hash = "sha256:ece246a0238697502d37f08cb615ffad5035a6c54b5ac70ba55af50d45a2908b"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 pydantic = ">=2"
 python-dateutil = ">=2.8.2"
 typing-extensions = ">=4.7.1"
-urllib3 = ">=1.25.3"
+urllib3 = ">= 1.25.3"
+
+[package.source]
+type = "directory"
+url = "../../../../moneykit-openapi/moneykit-python"
 
 [[package]]
 name = "mypy"
@@ -503,4 +505,4 @@ anyio = ">=3.0.0,<4"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.11"
-content-hash = "9b6129100032d532ad3b0478ec65913ee09c19d5403e8cc555adde104a0e2d11"
+content-hash = "a8996daecb0c4ffeec7523f771404f0bf889acd42e55bdf00b211775e4982ec7"
