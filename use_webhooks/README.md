@@ -73,7 +73,7 @@ The backend exposes 3 APIs you can `curl` or use postman to trigger:
 With each of these you should see new webhook events logged.
 
 For non-sandbox links you can request real product refreshes to trigger webhook events. Be aware you may be charged for
-on-demand product refreshes. You can also disconnect the link to trigger a state changed, however this makes the link
+on-demand product refreshes. You can also delete the link to trigger a state change, but this will make the link
 unusable.
 
 - `POST http://localhost:8000/links/LINK_ID/refresh/accounts`
@@ -141,4 +141,3 @@ Included in each webhook request is a `MoneyKit-Delivery-Token` and `MoneyKit-De
 You should log this value out in your handler to help debug webhook issues.
 
 You can provide MoneyKit support with a `MoneyKit-Delivery-Token` to aid our debugging process.
-

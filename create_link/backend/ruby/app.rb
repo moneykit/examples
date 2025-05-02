@@ -90,7 +90,7 @@ delete '/links/:link_id' do
   link_id = params['link_id']
 
   links_api = MoneyKit::LinksApi.new
-  links_api.disconnect(link_id)
+  links_api.delete_link(link_id)
 
   status 200
   {}.to_json

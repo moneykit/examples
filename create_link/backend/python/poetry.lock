@@ -107,7 +107,7 @@ files = [
 
 [[package]]
 name = "moneykit"
-version = "0.2.1"
+version = "0.2.2"
 description = "MoneyKit API"
 optional = false
 python-versions = "^3.8"

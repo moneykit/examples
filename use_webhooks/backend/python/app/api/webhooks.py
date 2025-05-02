@@ -109,5 +109,5 @@ async def handle_moneykit_webhook(
 #     # Pseudo code background task to sync transactions to your database
 #     link = db.get_link(link_id)
 #     transactions_api = moneykit.TransactionsApi(moneykit_client())
-#     response = transactions_api.get_transactions_diff(link_id, cursor=link.transaction_sync_cursor)
+#     response = transactions_api.get_transactions_sync(link_id, cursor=link.transaction_sync_cursor)
 #     # See `cache_transactions/python` example for how this works

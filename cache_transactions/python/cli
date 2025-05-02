@@ -118,7 +118,7 @@ def apply_diff(link_id: str) -> None:
         has_more = True
         while has_more:
             # We must consume until `has_more` is False
-            response = transactions_api.get_transactions_diff(
+            response = transactions_api.get_transactions_sync(
                 link.moneykit_id, cursor=link.transaction_sync_cursor
             )
             has_more = response.has_more

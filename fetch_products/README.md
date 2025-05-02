@@ -25,7 +25,7 @@ if you don't already have a `link_id`.
 
 ## Fetch Products
 
-A `Makefile` is set up for convience of running different langauge targets in Docker.
+A `Makefile` is set up for convience of running different language targets in Docker.
 
 ```sh
 make python
@@ -93,10 +93,10 @@ bundle install
 ./cli get-transactions <link_id> --start-date <date> --end-date <date>
 ```
 
-#### Transactions Diff
+#### Transactions Sync
 
 ```sh
-./cli get-transactions-diff <link_id> [--cursor <cursor>]
+./cli get-transactions-sync <link_id> [--cursor <cursor>]
 ```
 
 #### Delete

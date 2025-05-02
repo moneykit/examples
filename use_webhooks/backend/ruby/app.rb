@@ -74,7 +74,7 @@ delete '/links/:link_id' do
   link_id = params['link_id']
 
   links_api = MoneyKit::LinksApi.new
-  links_api.disconnect(link_id)
+  links_api.delete_link(link_id)
 
   status 200
   { }.to_json
@@ -233,7 +233,7 @@ end
 #     # Pseudo code background task to sync transactions to your database
 #     link = db.get_link(link_id)
 #     transactions_api = moneykit.TransactionsApi.new
-#     response = transactions_api.get_transactions_diff(link_id, cursor=link.transaction_sync_cursor)
+#     response = transactions_api.get_transactions_sync(link_id, cursor=link.transaction_sync_cursor)
 #     # See `cache_transactions/ruby` example for how this works
 #   end
 # end
