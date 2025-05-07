@@ -143,7 +143,7 @@ def _get_or_create_link(session: Session, link_id: str) -> db.Link:
 
 
 def _apply_transactions_diff(
-    session: Session, link_id: int, diff: moneykit.models.TransactionDiff
+    session: Session, link_id: int, diff: moneykit.models.TransactionSync
 ) -> None:
     print("Transactions diff:", diff)
     for mk_txn in diff.created:

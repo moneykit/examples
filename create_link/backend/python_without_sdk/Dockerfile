@@ -9,9 +9,11 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python
 WORKDIR /app
 
 COPY ./pyproject.toml ./poetry.lock* /app/
+RUN poetry lock
 RUN poetry install --no-root
 
 COPY . /app
+RUN poetry lock
 RUN poetry install --no-root
 
 ENV PORT=8000
