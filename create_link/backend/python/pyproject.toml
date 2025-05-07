@@ -1,16 +1,14 @@
-[tool.poetry]
+[project]
 name = "create_link_app"
 version = "0.1.0"
-description = ""
-authors = ["moneykit.com"]
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-moneykit = "^0.2.2"
-fastapi = "^0.110.1"
-uvicorn = "^0.24.0.post1"
-pydantic-settings = "^2.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "moneykit>=0.2.3",
+    "fastapi>=0.110.1",
+    "uvicorn>=0.24.0.post1",
+    "pydantic-settings>=2.1.0",
+]
 
 [tool.poetry.group.dev.dependencies]
 watchgod = "^0.8.2"
