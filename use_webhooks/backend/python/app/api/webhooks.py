@@ -14,8 +14,8 @@ logger = logging.getLogger("example.api.webooks")
 
 AnyWebhook = Annotated[
     Union[
-        moneykit.models.LinkProductRefreshWebhook,
-        moneykit.models.LinkStateChangedWebhook,
+        moneykit.models.ProductStateChangedWebhook,
+        moneykit.models.AppLinkStateChangedWebhook,
         moneykit.models.TransactionUpdatesAvailableWebhook,
     ],
     # Note this disciminator does not take into account breaking changes (`webhook_major_version`)
@@ -62,7 +62,7 @@ async def handle_moneykit_webhook(
         logger.info(f"Parsed: {body}")
         match body.webhook_event:
             case "link.state_changed":
-                state_changed_webhook = cast(moneykit.models.LinkStateChangedWebhook, body)
+                state_changed_webhook = cast(moneykit.models.AppLinkStateChangedWebhook, body)
                 logger.info(
                     f"{state_changed_webhook.link_id}: {state_changed_webhook.state=} "
                     f"{state_changed_webhook.error=} {state_changed_webhook.error_message=}"
@@ -70,7 +70,7 @@ async def handle_moneykit_webhook(
                 # Next step: start a background job to update the saved link state
                 # update_link_state.delay(link_id=state_changed_webhook.link_id)
             case "link.product_refresh":
-                product_refresh_webhook = cast(moneykit.models.LinkProductRefreshWebhook, body)
+                product_refresh_webhook = cast(moneykit.models.ProductStateChangedWebhook, body)
                 logger.info(
                     f"{product_refresh_webhook.link_id}: {product_refresh_webhook.product=} "
                     f"{product_refresh_webhook.state=} {product_refresh_webhook.state_changed_at=} "
@@ -109,5 +109,5 @@ async def handle_moneykit_webhook(
 #     # Pseudo code background task to sync transactions to your database
 #     link = db.get_link(link_id)
 #     transactions_api = moneykit.TransactionsApi(moneykit_client())
-#     response = transactions_api.get_transactions_diff(link_id, cursor=link.transaction_sync_cursor)
+#     response = transactions_api.get_transactions_sync(link_id, cursor=link.transaction_sync_cursor)
 #     # See `cache_transactions/python` example for how this works

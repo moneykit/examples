@@ -1,20 +1,17 @@
-[tool.poetry]
+[project]
 name = "create_link_app"
 version = "0.1.0"
-description = ""
-authors = ["moneykit.com"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-fastapi = "^0.110.1"
-uvicorn = "^0.24.0.post1"
-pydantic-settings = "^2.1.0"
-httpx = "^0.25.2"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110.1",
+    "uvicorn>=0.24.0.post1",
+    "pydantic-settings>=2.1.0",
+    "httpx>=0.25.2",
+]
 
 [tool.poetry.group.dev.dependencies]
 watchgod = "^0.8.2"
-ruff = "^0.1.6"
+ruff = "^0.11.7"
 mypy = "^1.7.1"
 
 [build-system]
@@ -26,8 +23,8 @@ line-length = 120
 target-version = ["py311"]
 
 [tool.ruff]
-select = ["I", "E", "W", "F", "C"]
-ignore = ["E501"]
+lint.select = ["I", "E", "W", "F", "C"]
+lint.ignore = ["E501"]
 line-length = 120
 
 [tool.mypy]

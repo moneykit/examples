@@ -36,16 +36,16 @@ module Foo
         end
       end
 
-      class Disconncet < Dry::CLI::Command
-        desc "Disconnect a link."
+      class Delete < Dry::CLI::Command
+        desc "Delete a link."
 
         argument :link_id, type: :string, required: true, desc: "Link id"
 
         def call(link_id:, **)
 
           links_api = MoneyKit::LinksApi.new
-          links_api.disconnect(link_id)
-          puts "Disconnected #{link_id}"
+          links_api.delete_link(link_id)
+          puts "Deleted #{link_id}"
         end
       end
 
@@ -110,7 +110,7 @@ module Foo
         end
       end
 
-      class GetTransactionsDiff < Dry::CLI::Command
+      class GetTransactionsSync < Dry::CLI::Command
         desc "Print the change in transactions since <cursor> if no cursor is given, all transactions are printed."
 
         argument :link_id, type: :string, required: true, desc: "Link id"
@@ -120,7 +120,7 @@ module Foo
           transactions_api = MoneyKit::TransactionsApi.new
           has_more = true
           while has_more do
-            response = transactions_api.get_transactions_diff(link_id, {:cursor => cursor})
+            response = transactions_api.get_transactions_sync(link_id, {:cursor => cursor})
             has_more = response.has_more
             cursor = response.cursor._next
             puts 'Transactions diff:'
@@ -132,12 +132,12 @@ module Foo
 
       register "refresh", Refresh
       register "state", State
-      register "disconnect", Disconncet
+      register "delete", Delete
       register "get-accounts", GetAccounts
       register "get-account-numbers", GetAccounts
       register "get-identity", GetIdentity
       register "get-transactions", GetTransactions
-      register "get-transactions-diff", GetTransactionsDiff
+      register "get-transactions-sync", GetTransactionsSync
     end
   end
 end
