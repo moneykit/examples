@@ -1,8 +1,8 @@
 [project]
 name = "create_link_app"
 version = "0.1.0"
-readme = "README.md"
 requires-python = ">=3.11"
+readme = "README.md"
 dependencies = [
     "moneykit>=0.2.3",
     "fastapi>=0.110.1",
@@ -10,18 +10,15 @@ dependencies = [
     "pydantic-settings>=2.1.0",
 ]
 
-[tool.poetry.group.dev.dependencies]
-watchgod = "^0.8.2"
-ruff = "^0.11.7"
-mypy = "^1.7.1"
+[dependency-groups]
+dev = [
+    "watchgod>=0.8.2,<0.9",
+    "ruff>=0.11.7,<0.12",
+    "mypy>=1.7.1,<2",
+]
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.black]
-line-length = 120
-target-version = ["py311"]
+[tool.uv]
+package = true
 
 [tool.ruff]
 lint.select = ["I", "E", "W", "F", "C"]

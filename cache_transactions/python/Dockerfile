@@ -1,18 +1,13 @@
 FROM python:3.11.12
 
-# Install Poetry
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3 - --version 2.1.3 && \
-    cd /usr/local/bin && \
-    ln -s /opt/poetry/bin/poetry && \
-    poetry config virtualenvs.create false
+# install uv and git
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+RUN apt-get update && apt-get install -y git
 
 WORKDIR /app
 
-COPY ./pyproject.toml ./poetry.lock* /app/
-RUN poetry install --no-root
-
 COPY . /app
-RUN poetry install --no-root
+RUN uv sync
 
 ENTRYPOINT [ "bash" ]
 CMD ["./run.sh"]

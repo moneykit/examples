@@ -11,21 +11,21 @@ popd () {
 
 
 pushd cache_transactions && pwd
-pushd python && poetry update moneykit && popd
+pushd python && uv pip install --upgrade moneykit && popd
 popd
 
 pushd create_link/backend && pwd
-pushd python && poetry update moneykit && popd
+pushd python && uv pip install --upgrade moneykit && popd
 pushd ruby && bundle update moneykit && popd
 popd
 
 
 pushd fetch_products && pwd
-pushd python && poetry update moneykit && popd
+pushd python && uv pip install --upgrade moneykit && popd
 pushd ruby && bundle update moneykit && popd
 popd
 
 pushd use_webhooks/backend && pwd
-pushd python && poetry update moneykit && popd
+pushd python && uv pip install --upgrade moneykit && popd
 pushd ruby && bundle update moneykit && popd
 popd

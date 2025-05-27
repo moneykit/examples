@@ -1,8 +1,8 @@
 [project]
 name = "fetch_products"
 version = "0.1.0"
-readme = "README.md"
 requires-python = ">=3.11"
+readme = "README.md"
 dependencies = [
     "moneykit>=0.2.3",
     "typer>=0.9.0",
@@ -10,12 +10,11 @@ dependencies = [
     "python-dotenv>=1.0.0",
 ]
 
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.1.7"
+[tool.uv]
+package = true
 
 [project.scripts]
-mk = 'cli:run'
+mk = "cli:run"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = ["ruff>=0.1.7,<0.2"]

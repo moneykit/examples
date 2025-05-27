@@ -38,7 +38,7 @@ make ruby
 For example, To run the python CLI locally you can:
 ```sh
 cd fetch_products/python
-poetry install
+uv sync
 ./cli --help
 ./cli get-accounts <link_id>
 ./cli get-transactions <link_id> --start-date <date> --end-date <date>
