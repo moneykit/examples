@@ -3,6 +3,8 @@ from typing import Annotated
 
 import moneykit
 import moneykit.models
+import moneykit.models.products_settings
+import moneykit.models.transactions_product_settings
 import pydantic
 from fastapi import APIRouter, Body, status
 
@@ -50,18 +52,17 @@ def new_link_session() -> NewLinkSessionResponse:
     response = link_session_api.create_link_session(
         moneykit.models.CreateLinkSessionRequest(
             customer_user=moneykit.models.CustomerUser(id="examples-use_webhooks-test-user"),
-            link_tags=["examples:use_webhooks"],
             redirect_uri=settings.frontend_oauth_redirect_uri,
             webhook=webhook_url,
-            products=moneykit.models.ProductsSettings(
-                transactions=moneykit.models.TransactionsProductSettings(
-                    required=False,
-                    prefetch=True,
+            settings=moneykit.models.LinkSessionSettingOverrides(
+                products=moneykit.models.products_settings.ProductsSettings(
+                    transactions=moneykit.models.transactions_product_settings.TransactionsProductSettings(
+                        required=True,
+                    ),
                 ),
             ),
         ),
     )
-    logger.info("Created a MoneyKit Link Session")
     return NewLinkSessionResponse(link_session_token=response.link_session_token)
 
 
