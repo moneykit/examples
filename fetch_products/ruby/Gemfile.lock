@@ -8,19 +8,19 @@ GEM
       reline (>= 0.3.1)
     dotenv (2.8.1)
     dry-cli (1.0.0)
-    faraday (2.13.1)
+    faraday (2.14.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
     faraday-multipart (1.1.0)
       multipart-post (~> 2.0)
-    faraday-net_http (3.4.0)
-      net-http (>= 0.5.0)
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
     io-console (0.6.0)
     irb (1.10.0)
       rdoc
       reline (>= 0.3.8)
-    json (2.7.1)
+    json (2.18.1)
     language_server-protocol (3.17.0.3)
     logger (1.7.0)
     marcel (1.0.4)
@@ -29,8 +29,8 @@ GEM
       faraday-multipart
       marcel
     multipart-post (2.4.1)
-    net-http (0.6.0)
-      uri
+    net-http (0.9.1)
+      uri (>= 0.11.1)
     parallel (1.23.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -62,7 +62,7 @@ GEM
     sinatra-cors (1.2.0)
     stringio (3.1.0)
     unicode-display_width (2.5.0)
-    uri (1.0.4)
+    uri (1.1.1)
 
 PLATFORMS
   aarch64-linux
