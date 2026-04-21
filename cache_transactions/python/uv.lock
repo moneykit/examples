@@ -33,7 +33,7 @@ dev = [
 requires-dist = [
     { name = "moneykit", specifier = ">=0.2.3" },
     { name = "psycopg2-binary", specifier = ">=2.9.9" },
-    { name = "python-dotenv", specifier = ">=1.0.0" },
+    { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "rich", specifier = ">=13.7.0" },
     { name = "sqlalchemy", specifier = ">=2.0.23" },
     { name = "typer", specifier = ">=0.9.0" },
@@ -72,7 +72,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/3b/20/da6746e1efbb114740b6e1671ee0d35a5ff39e49f6a1c169e8328d47b7c8/greenlet-3.0.1-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:f7bfb769f7efa0eefcd039dd19d843a4fbfbac52f1878b1da2ed5793ec9b1a65", size = 263133, upload-time = "2023-10-25T12:12:47.11Z" },
     { url = "https://files.pythonhosted.org/packages/42/85/32e38abd5f046d56c9ff762c66ddd763cee17daccefa6f22fdae7f7e6472/greenlet-3.0.1-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:91e6c7db42638dc45cf2e13c73be16bf83179f7859b07cfc139518941320be96", size = 653762, upload-time = "2023-10-25T12:17:02.941Z" },
     { url = "https://files.pythonhosted.org/packages/b1/62/1501a7dd0ac305a3f2c4d5ac9e526a71e96070cb1c27a6d2d7fd11c65d38/greenlet-3.0.1-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:1757936efea16e3f03db20efd0cd50a1c86b06734f9f7338a90c4ba85ec2ad5a", size = 670121, upload-time = "2023-10-25T12:19:02.967Z" },
-    { url = "https://files.pythonhosted.org/packages/3e/87/88d45172c2fe19052d782bf616ce5a2a92604823320b7cd59ea2dd9ad41d/greenlet-3.0.1-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:19075157a10055759066854a973b3d1325d964d498a805bb68a1f9af4aaef8ec", size = 660986, upload-time = "2023-10-25T12:13:29.012Z" },
     { url = "https://files.pythonhosted.org/packages/b7/c1/bf937378fd918599a3b51f55bf049e5df59eac6557380a30f3e78da56b7e/greenlet-3.0.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e9d21aaa84557d64209af04ff48e0ad5e28c5cca67ce43444e939579d085da72", size = 664062, upload-time = "2023-10-25T11:50:31.01Z" },
     { url = "https://files.pythonhosted.org/packages/5b/ee/3b61723db7690e1168f4ed1af98ea595bcc843c6221d13846d6cc390b2cb/greenlet-3.0.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:2847e5d7beedb8d614186962c3d774d40d3374d580d2cbdab7f184580a39d234", size = 616654, upload-time = "2023-10-25T11:50:34.361Z" },
     { url = "https://files.pythonhosted.org/packages/6b/bd/033343cf60d27702d3be9edba9dbc8392594e6c4a6eede337dbb40e0c4b2/greenlet-3.0.1-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:97e7ac860d64e2dcba5c5944cfc8fa9ea185cd84061c623536154d5a89237884", size = 1150093, upload-time = "2023-10-25T12:11:35.975Z" },
@@ -81,7 +80,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/ff/84/08e7e5b1d44772b6ea7e0b98ec7e8504a15d5ec8f32cdb89577afdb0c23b/greenlet-3.0.1-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:100f78a29707ca1525ea47388cec8a049405147719f47ebf3895e7509c6446aa", size = 263972, upload-time = "2023-10-25T12:12:48.967Z" },
     { url = "https://files.pythonhosted.org/packages/ec/e4/ccd3e98a227154d370facbb147eb54ed91cc113e362c66de89e2127bae4f/greenlet-3.0.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:60d5772e8195f4e9ebf74046a9121bbb90090f6550f81d8956a05387ba139353", size = 655529, upload-time = "2023-10-25T12:17:05.471Z" },
     { url = "https://files.pythonhosted.org/packages/73/10/dbed72dde668f65e14d53bc82ead548c77cab072ed87aed5b3a65c311859/greenlet-3.0.1-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:daa7197b43c707462f06d2c693ffdbb5991cbb8b80b5b984007de431493a319c", size = 671065, upload-time = "2023-10-25T12:19:04.983Z" },
-    { url = "https://files.pythonhosted.org/packages/42/9a/43296ec8df72087986de68f17740f7bbd87ec636187e788aeaf42923aa3c/greenlet-3.0.1-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:ea6b8aa9e08eea388c5f7a276fabb1d4b6b9d6e4ceb12cc477c3d352001768a9", size = 667358, upload-time = "2023-10-25T12:13:31.423Z" },
     { url = "https://files.pythonhosted.org/packages/c6/c9/b420a38f36723716386f8cd1b0fe0423697c7358c8b5a4bfb1e96153ec80/greenlet-3.0.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8d11ebbd679e927593978aa44c10fc2092bc454b7d13fdc958d3e9d508aba7d0", size = 665686, upload-time = "2023-10-25T11:50:33.229Z" },
     { url = "https://files.pythonhosted.org/packages/72/2e/af8a579a8420886d345a26b171275e3f33d0e9a5a5379400aabb55ddad35/greenlet-3.0.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:dbd4c177afb8a8d9ba348d925b0b67246147af806f0b104af4d24f144d461cd5", size = 620797, upload-time = "2023-10-25T11:50:37.076Z" },
     { url = "https://files.pythonhosted.org/packages/ea/c7/56afa98869fc4d927890ccdbc9c57fa66f0e02a3c0860271d36ab1567357/greenlet-3.0.1-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:20107edf7c2c3644c67c12205dc60b1bb11d26b2610b276f97d666110d1b511d", size = 1149650, upload-time = "2023-10-25T12:11:38.191Z" },
@@ -231,11 +229,11 @@ wheels = [
 
 [[package]]
 name = "python-dotenv"
-version = "1.0.0"
+version = "1.2.2"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/31/06/1ef763af20d0572c032fa22882cfbfb005fba6e7300715a37840858c919e/python-dotenv-1.0.0.tar.gz", hash = "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba", size = 37399, upload-time = "2023-02-24T06:46:37.282Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz", hash = "sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3", size = 50135, upload-time = "2026-03-01T16:00:26.196Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/44/2f/62ea1c8b593f4e093cc1a7768f0d46112107e790c3e478532329e434f00b/python_dotenv-1.0.0-py3-none-any.whl", hash = "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a", size = 19482, upload-time = "2023-02-24T06:46:36.009Z" },
+    { url = "https://files.pythonhosted.org/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl", hash = "sha256:1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a", size = 22101, upload-time = "2026-03-01T16:00:25.09Z" },
 ]
 
 [[package]]
