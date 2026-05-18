@@ -17,4 +17,4 @@ gem "sinatra-cors", "~> 1.2"
 
 gem "activesupport", "~> 7.2"
 
-gem "jwt", "~> 2.7"
+gem "jwt", "~> 3.2"
